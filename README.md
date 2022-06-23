@@ -3,11 +3,11 @@
 ## Installation
 
 ```bash
-$yarn install
+$ yarn install
 ```
 
 ## Running the app
 
 ```bash
-$yarn run dev
+$ yarn run dev
 ```
