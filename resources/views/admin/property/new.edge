@@ -1,0 +1,39 @@
+@layout('admin/base')
+@set('title', "Administration new")
+@section('body')
+    <h4>Add a new property</h4>
+    <form action="" method="post" enctype="multipart/form-data">
+        <div class="lg:py-16 max-w-screen-md space-y-4">
+            @component('components/form', {
+                name: "title",
+                label: "Title",
+                type: "text"
+            })
+            @end
+            @component('components/form', {
+                name: "town",
+                label: "Town",
+                type: "text"
+            })
+            @end
+            @component('components/form', {
+                name: "price",
+                label: "Price",
+            })
+            @end
+            @component('components/form', {
+                name: "surface",
+                label: "Surface",
+            })
+            @end
+            @component('components/form', {
+                name: "description",
+                label: "Description",
+                type: "textearea",
+                desctiption: "Desctiption..."
+            })
+            @end
+            <button type="submit" class="py-3 px-4 text-sm font-medium text-center text-white rounded-lg bg-green-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 mt-4">Validate creation</button>
+        </div>
+    </form>
+@end
