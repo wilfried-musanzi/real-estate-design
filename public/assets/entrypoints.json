@@ -1,0 +1,12 @@
+{
+  "entrypoints": {
+    "app": {
+      "css": [
+        "http://localhost:38233/assets/app.css"
+      ],
+      "js": [
+        "http://localhost:38233/assets/app.js"
+      ]
+    }
+  }
+}
