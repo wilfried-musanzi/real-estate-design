@@ -3,13 +3,17 @@ import Category from 'App/Models/Category'
 
 export default class AdminCategory {
   async index({ view }: HttpContextContract) {
-    const properties = await Category.query().orderBy('id', 'asc')
-    return view.render('admin/property/index', {
-      properties,
+    const categories = await Category.query().orderBy('id', 'asc')
+    return view.render('admin/category/index', {
+      categories,
+      controller: 'adminCategoryController',
     })
   }
+
   view({ view }: HttpContextContract) {
-    return view.render('admin/property/new')
+    return view.render('admin/category/new', {
+      controller: 'adminCategoryController',
+    })
   }
 
   async addNew({ request, session, response }: HttpContextContract) {
@@ -17,14 +21,17 @@ export default class AdminCategory {
     const property = await Category.create(data)
     if (property.$isPersisted) {
       session.flash({ success: 'Created Success' })
-      return response.redirect().toRoute('admin')
+      return response.redirect().toRoute('admin-category.index', {
+        controller: 'adminCategoryController',
+      })
     }
   }
 
   async show({ view, params }: HttpContextContract) {
-    const property = await Category.findOrFail(params.id)
-    return view.render('admin/property/edit', {
-      property,
+    const category = await Category.findOrFail(params.id)
+    return view.render('admin/category/edit', {
+      category,
+      controller: 'adminCategoryController',
     })
   }
 
@@ -33,13 +40,17 @@ export default class AdminCategory {
     const data = request.all()
     property.merge(data).save()
     session.flash({ success: 'Updated Success' })
-    return response.redirect().toRoute('admin')
+    return response.redirect().toRoute('admin-category.index', {
+      controller: 'adminCategoryController',
+    })
   }
 
   async delete({ params, session, response }: HttpContextContract) {
     const property = await Category.findOrFail(params.id)
     property.delete()
     session.flash({ success: 'Delete Success' })
-    return response.redirect().toRoute('admin')
+    return response.redirect().toRoute('admin-category.index', {
+      controller: 'adminCategoryController',
+    })
   }
 }

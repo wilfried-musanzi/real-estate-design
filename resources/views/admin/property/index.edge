@@ -6,10 +6,7 @@
             {{ flashMessages.get('success') }}
         </div>
     @end
-    <div class="d-flex justify-content-end mb-4">
-       
-        <a href="{{ route("admin-property.new")}}" class="btn btn-primary">Add New</a>
-    </div>
+    
     <table class="table table-striped">
         <thead>
             <tr>
@@ -39,4 +36,7 @@
             @end
         </tbody>
     </table>
+    <div class="d-flex justify-content-end mb-4">
+        <a href="{{ route("admin-property.new")}}" class="btn btn-primary">Add New</a>
+    </div>
 @end
