@@ -1,5 +1,28 @@
 @layout('admin/base')
-@set('title', "Administration edit")
+@set('title', "Administration new")
 @section('body')
-    <h4>Modifie the property</h4>
+    <h4>Modie the property {{ property.title }}</h4>
+    <form action="" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="{{ property.title }}">Title</label>
+            <input type="text" name="title" value="{{ property.title }}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="{{ property.town }}">Town</label>
+            <input type="text" name="town"  value="{{ property.town }}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="{{ property.price }}">Price</label>
+            <input type="number" name="price" value="{{ property.price }}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="{{ property.surface }}">Surface</label>
+            <input type="number"  name="surface" value="{{ property.surface }}" class="form-control">
+        </div>
+         <div class="form-group">
+            <label for="{{ property.description }}">Desctiption</label>
+            <textarea type="textearea" name="description" class="form-control">{{ property.description }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Save property</button>
+    </form>
 @end
