@@ -1,7 +1,7 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', 'HomeController.index')
-Route.get('/admin', 'AdminControllers/AdminProperty.dashboard').as('admin')
+Route.get('/admin', 'AdminControllers/AdminDashboard.index').as('admin')
 
 // Admin Property
 Route.get('/admin/property', 'AdminControllers/AdminProperty.index').as('admin-property.index')

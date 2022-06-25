@@ -1,4 +1,5 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import Category from 'App/Models/Category'
 
 export default class AdminCategory {
@@ -17,14 +18,19 @@ export default class AdminCategory {
   }
 
   async addNew({ request, session, response }: HttpContextContract) {
-    const data = request.all()
-    const property = await Category.create(data)
-    if (property.$isPersisted) {
-      session.flash({ success: 'Created Success' })
-      return response.redirect().toRoute('admin-category.index', {
-        controller: 'adminCategoryController',
-      })
-    }
+    const categorySchema = schema.create({
+      name: schema.string([rules.minLength(4)]),
+    })
+
+    const payload = await request.validate({
+      schema: categorySchema,
+    })
+
+    await Category.create(payload)
+    session.flash({ success: 'Created Success' })
+    return response.redirect().toRoute('admin-category.index', {
+      controller: 'adminCategoryController',
+    })
   }
 
   async show({ view, params }: HttpContextContract) {
@@ -36,9 +42,14 @@ export default class AdminCategory {
   }
 
   async edit({ params, request, session, response }: HttpContextContract) {
+    const categorySchema = schema.create({
+      name: schema.string([rules.minLength(4)]),
+    })
+    const payload = await request.validate({
+      schema: categorySchema,
+    })
     const property = await Category.findOrFail(params.id)
-    const data = request.all()
-    property.merge(data).save()
+    property.merge(payload).save()
     session.flash({ success: 'Updated Success' })
     return response.redirect().toRoute('admin-category.index', {
       controller: 'adminCategoryController',

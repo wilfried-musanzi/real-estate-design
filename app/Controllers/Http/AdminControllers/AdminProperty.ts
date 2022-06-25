@@ -1,20 +1,24 @@
+import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Category from 'App/Models/Category'
 import Property from 'App/Models/Property'
 
 export default class AdminProperty {
-  async dashboard({ view }: HttpContextContract) {
-    const properties = await Property.query().count('id')
-    let [{ $extras: extraProp }] = properties
-    const { count: countProp } = extraProp
-    const category = await Category.query().count('id')
-    let [{ $extras: extraCat }] = category
-    const { count: countCat } = extraCat
-    return view.render('admin/dashboard', {
-      countProp,
-      countCat,
-      controller: 'adminDashboard',
-    })
+  propertySchema = schema.create({
+    title: schema.string([rules.minLength(5), rules.maxLength(15)]),
+    town: schema.string([rules.minLength(3)]),
+    price: schema.number([rules.range(400, 500)]),
+    surface: schema.number([rules.range(40, 100)]),
+    description: schema.string([rules.minLength(10), rules.maxLength(25)]),
+  })
+
+  messages = {
+    'title.minLength': 'Titre inferieur a 5',
+    'title.maxLength': 'Titre superieur a 15',
+    'town.minLength': 'Ville inferieur a 3',
+    'price.range': 'Le prix doit etre entre 400$ et 500$',
+    'surface.range': 'La surface doit etre entre 40m2 et 100m2',
+    'description.minLength': 'La description inferieur a 10',
+    'description.maxLength': 'La description superieur a 25',
   }
 
   async index({ view }: HttpContextContract) {
@@ -32,14 +36,15 @@ export default class AdminProperty {
   }
 
   async addNew({ request, session, response }: HttpContextContract) {
-    const data = request.all()
-    const property = await Property.create(data)
-    if (property.$isPersisted) {
-      session.flash({ success: 'Created Success' })
-      return response.redirect().toRoute('admin-property.index', {
-        controller: 'adminPropertyController',
-      })
-    }
+    const payload = await request.validate({
+      schema: this.propertySchema,
+      messages: this.messages,
+    })
+    await Property.create(payload)
+    session.flash({ success: 'Created Success' })
+    return response.redirect().toRoute('admin-property.index', {
+      controller: 'adminPropertyController',
+    })
   }
 
   async show({ view, params }: HttpContextContract) {
@@ -52,8 +57,11 @@ export default class AdminProperty {
 
   async edit({ params, request, session, response }: HttpContextContract) {
     const property = await Property.findOrFail(params.id)
-    const data = request.all()
-    property.merge(data).save()
+    const payload = await request.validate({
+      schema: this.propertySchema,
+      messages: this.messages,
+    })
+    property.merge(payload).save()
     session.flash({ success: 'Updated Success' })
     return response.redirect().toRoute('admin-property.index', {
       controller: 'adminPropertyController',

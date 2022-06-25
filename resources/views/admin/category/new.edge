@@ -2,15 +2,15 @@
 @set('title', "Administration new")
 @section('body')
     <h4>Add a new category</h4>
-    <form action="" method="post" enctype="multipart/form-data">
-        <div class="form-group">
-            @component('components/form', {
-                name: "name",
-                label: "Name",
-                type: "text"
+    <form class="form-group" action="" method="post" enctype="multipart/form-data">
+       <div class="mb-4">
+         @component('components/form', {
+            name: "name",
+            label: "Name",
+            type: "text",
             })
-            @end
-            <button class="btn btn-primary" type="submit" >Validate creation</button>
-        </div>
+        @end
+       </div>
+        <button class="btn btn-primary" type="submit" >Validate creation</button>
     </form>
 @end

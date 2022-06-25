@@ -1,11 +1,7 @@
 @layout('admin/base')
 @set('title', "Administration")
 @section('body')
-     @if(flashMessages.has("success"))
-        <div class="alert alert-success">
-            {{ flashMessages.get('success') }}
-        </div>
-    @end
+@include('partials/flash')
     <table class="table table-striped">
         <thead>
             <tr>
