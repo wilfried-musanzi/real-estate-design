@@ -10,6 +10,7 @@
                 <th>Town</th>
                 <th>Price</th>
                 <th>Surface</th>
+                <th>Reserved</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -20,7 +21,8 @@
                 <td>{{ property.title }}</td>
                 <td>{{ property.town }}</td>
                 <td>{{ property.price }}</td>
-                <td>{{ property.surface }}</td>
+                <td>{{ property.price }}</td>
+                <td>{{ property.reserved ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ route("admin-property.edit", {id: property.id}) }}" class="btn btn-primary">Editer</a>
                     <form action="{{ route("admin-property.delete", { id: property.id})}}" method="post" style="display:inline-block">

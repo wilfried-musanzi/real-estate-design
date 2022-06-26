@@ -9,6 +9,7 @@ export default class AdminProperty {
     price: schema.number([rules.range(400, 500)]),
     surface: schema.number([rules.range(40, 100)]),
     description: schema.string([rules.minLength(10), rules.maxLength(25)]),
+    reserved: schema.boolean.nullableAndOptional(),
   })
 
   messages = {
@@ -19,6 +20,7 @@ export default class AdminProperty {
     'surface.range': 'La surface doit etre entre 40m2 et 100m2',
     'description.minLength': 'La description inferieur a 10',
     'description.maxLength': 'La description superieur a 25',
+    'required': 'Le champ ne peut pas etre vide !',
   }
 
   async index({ view }: HttpContextContract) {
@@ -40,7 +42,7 @@ export default class AdminProperty {
       schema: this.propertySchema,
       messages: this.messages,
     })
-    await Property.create(payload)
+    await Property.create({ ...payload, reserved: payload.reserved || false })
     session.flash({ success: 'Created Success' })
     return response.redirect().toRoute('admin-property.index', {
       controller: 'adminPropertyController',
@@ -61,7 +63,7 @@ export default class AdminProperty {
       schema: this.propertySchema,
       messages: this.messages,
     })
-    property.merge(payload).save()
+    property.merge({ ...payload, reserved: payload.reserved || false }).save()
     session.flash({ success: 'Updated Success' })
     return response.redirect().toRoute('admin-property.index', {
       controller: 'adminPropertyController',

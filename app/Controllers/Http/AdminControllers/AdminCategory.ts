@@ -3,6 +3,13 @@ import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import Category from 'App/Models/Category'
 
 export default class AdminCategory {
+  categorySchema = schema.create({
+    name: schema.string([rules.minLength(2)]),
+  })
+  messages = {
+    'required': 'Le champ ne peut pas etre vide !',
+    'name.minLength': 'Taille inferieur a 2',
+  }
   async index({ view }: HttpContextContract) {
     const categories = await Category.query().orderBy('id', 'asc')
     return view.render('admin/category/index', {
@@ -18,12 +25,9 @@ export default class AdminCategory {
   }
 
   async addNew({ request, session, response }: HttpContextContract) {
-    const categorySchema = schema.create({
-      name: schema.string([rules.minLength(4)]),
-    })
-
     const payload = await request.validate({
-      schema: categorySchema,
+      schema: this.categorySchema,
+      messages: this.messages,
     })
 
     await Category.create(payload)
@@ -42,11 +46,9 @@ export default class AdminCategory {
   }
 
   async edit({ params, request, session, response }: HttpContextContract) {
-    const categorySchema = schema.create({
-      name: schema.string([rules.minLength(4)]),
-    })
     const payload = await request.validate({
-      schema: categorySchema,
+      schema: this.categorySchema,
+      messages: this.messages,
     })
     const property = await Category.findOrFail(params.id)
     property.merge(payload).save()
