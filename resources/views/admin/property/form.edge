@@ -46,6 +46,7 @@
             name: "categoryId",
             label: "Category Id",
             type: "select",
+            value: property.categoryId,
             options: categories.reduce((k, v) => ({...k, [v.id]: v.name}), {})
         })
         @end
