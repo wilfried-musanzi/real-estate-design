@@ -25,7 +25,7 @@
                 <td>{{ property.reserved ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ route("admin-property.edit", {id: property.id}) }}" class="btn btn-primary">Editer</a>
-                    <form action="{{ route("admin-property.delete", { id: property.id})}}" method="post" style="display:inline-block">
+                    <form action="{{ route("admin-property.delete", { id: property.id})}}?_method=DELETE" method="POST" style="display:inline-block" onclick="return confirm('Really sure to delete ?')">
                         <button type="submit" class="btn btn-danger">Supprimer</button>
                     </form>
                 </td>
@@ -36,4 +36,14 @@
     <div class="d-flex justify-content-end mb-4">
         <a href="{{ route("admin-property.new")}}" class="btn btn-primary">Add New</a>
     </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            @each(anchor in properties.getUrlsForRange(1, properties.lastPage))
+                <li class="page-item">
+                    <a class="page-link" href="{{ anchor.url }}">{{ anchor.page }}</a>
+                </li>
+            @end
+        </ul>
+    </nav>
+    </nav>
 @end

@@ -5,13 +5,15 @@ Route.get('/admin', 'AdminControllers/AdminDashboard.index').as('admin')
 
 // Admin Property
 Route.get('/admin/property', 'AdminControllers/AdminProperty.index').as('admin-property.index')
-Route.get('/admin/property/new', 'AdminControllers/AdminProperty.view').as('admin-property.new')
-Route.post('/admin/property/new', 'AdminControllers/AdminProperty.addNew')
-Route.get('/admin/property/edit/:id', 'AdminControllers/AdminProperty.show').as(
+Route.get('/admin/property/new', 'AdminControllers/AdminProperty.createView').as(
+  'admin-property.new'
+)
+Route.post('/admin/property/new', 'AdminControllers/AdminProperty.create')
+Route.get('/admin/property/edit/:id', 'AdminControllers/AdminProperty.updateView').as(
   'admin-property.edit'
 )
-Route.post('/admin/property/edit/:id', 'AdminControllers/AdminProperty.edit')
-Route.post('/admin/property/delete/:id', 'AdminControllers/AdminProperty.delete').as(
+Route.post('/admin/property/edit/:id', 'AdminControllers/AdminProperty.update')
+Route.delete('/admin/property/delete/:id', 'AdminControllers/AdminProperty.delete').as(
   'admin-property.delete'
 )
 

@@ -1,0 +1,51 @@
+<div class="row mb-4">
+    <div class="col-md-4">
+        @component('components/form', {
+            name: "title",
+            label: "Title",
+            type: "text",
+            value: property.title
+        })
+        @end
+    </div>
+    <div class="col-md-4">
+        @component('components/form', {
+            name: "town",
+            label: "Town",
+            type: "text",
+            value: property.town
+        })
+        @end
+    </div>
+    <div class="col-md-4">
+        <input class="form-check-input" name="reserved" type="checkbox" id="reserved" {{ property.reserved ? 'checked' : ' ' }}>
+        <label class="form-check-label" for="reserved">
+            Reserved
+        </label>
+    </div>
+</div>
+<div class="row mb-4">
+    <div class="col-md-6">
+        @component('components/form', {
+            name: "price",
+            label: "Price",
+            value: property.price
+        })
+        @end
+    </div>
+    <div class="col-md-6">
+        @component('components/form', {
+            name: "surface",
+            label: "Surface",
+            value: property.surface
+        })
+        @end
+    </div>
+</div>
+@component('components/form', {
+    name: "description",
+    label: "Description",
+    type: "textearea",
+    value: property.description
+})
+@end

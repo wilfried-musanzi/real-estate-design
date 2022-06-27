@@ -1,6 +1,7 @@
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Property from 'App/Models/Property'
+import Database from '@ioc:Adonis/Lucid/Database'
 
 export default class AdminProperty {
   propertySchema = schema.create({
@@ -23,33 +24,34 @@ export default class AdminProperty {
     'required': 'Le champ ne peut pas etre vide !',
   }
 
-  async index({ view }: HttpContextContract) {
-    const properties = await Property.query().orderBy('id', 'asc')
+  async index({ view, request }: HttpContextContract) {
+    const limit = 2
+    const page = request.input('page', 1)
+    const properties = await Database.from(Property.table).paginate(page, limit)
+    properties.baseUrl('/admin/property')
     return view.render('admin/property/index', {
       properties,
       controller: 'adminPropertyController',
     })
   }
 
-  view({ view }: HttpContextContract) {
+  async createView({ view }: HttpContextContract) {
+    const property = new Property()
     return view.render('admin/property/new', {
+      property,
       controller: 'adminPropertyController',
     })
   }
 
-  async addNew({ request, session, response }: HttpContextContract) {
-    const payload = await request.validate({
-      schema: this.propertySchema,
-      messages: this.messages,
-    })
-    await Property.create({ ...payload, reserved: payload.reserved || false })
+  async create({ params, request, session, response }: HttpContextContract) {
+    await this.handleRequest(params, request)
     session.flash({ success: 'Created Success' })
     return response.redirect().toRoute('admin-property.index', {
       controller: 'adminPropertyController',
     })
   }
 
-  async show({ view, params }: HttpContextContract) {
+  async updateView({ view, params }: HttpContextContract) {
     const property = await Property.findOrFail(params.id)
     return view.render('admin/property/edit', {
       property,
@@ -57,13 +59,8 @@ export default class AdminProperty {
     })
   }
 
-  async edit({ params, request, session, response }: HttpContextContract) {
-    const property = await Property.findOrFail(params.id)
-    const payload = await request.validate({
-      schema: this.propertySchema,
-      messages: this.messages,
-    })
-    property.merge({ ...payload, reserved: payload.reserved || false }).save()
+  async update({ params, request, session, response }: HttpContextContract) {
+    await this.handleRequest(params, request)
     session.flash({ success: 'Updated Success' })
     return response.redirect().toRoute('admin-property.index', {
       controller: 'adminPropertyController',
@@ -77,5 +74,18 @@ export default class AdminProperty {
     return response.redirect().toRoute('admin-property.index', {
       controller: 'adminPropertyController',
     })
+  }
+
+  async handleRequest(
+    params: HttpContextContract['params'],
+    request: HttpContextContract['request']
+  ) {
+    const id = params.id
+    const property = id ? await Property.findOrFail(id) : new Property()
+    const payload = await request.validate({
+      schema: this.propertySchema,
+      messages: this.messages,
+    })
+    property.merge({ ...payload, reserved: payload.reserved || false }).save()
   }
 }

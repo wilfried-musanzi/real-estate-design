@@ -10,6 +10,7 @@ export default class AdminCategory {
     'required': 'Le champ ne peut pas etre vide !',
     'name.minLength': 'Taille inferieur a 2',
   }
+
   async index({ view }: HttpContextContract) {
     const categories = await Category.query().orderBy('id', 'asc')
     return view.render('admin/category/index', {
