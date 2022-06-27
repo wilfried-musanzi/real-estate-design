@@ -14,6 +14,20 @@
       {{ flashMessages.get(`errors.${name}`)}}
     </div>
   @end
+@elseif(type == "select")
+  <label for="{{ name }}" class="mb-2">{{ label }}</label>
+  <select name="{{ name }}" id="{{ name }}" class="form-control {{ flashMessages.has(`errors.${name}`) ? 'is-invalid' : ' ' }}">
+    @each(key in Object.keys(options))
+      <option value="{{ key }}" {{ flashMessages.get(name) || value == key ? 'selected' : ' ' }}>
+        {{ options[key] }}
+      </option>
+    @end
+  </select>
+  @if(flashMessages.has(`errors.${name}`))
+    <div class="invalid-feedback">
+      {{ flashMessages.get(`errors.${name}`)}}
+    </div>
+  @end
 @else
   <label for="{{ name }}" class="mb-2">{{ label }}</label>
   <input type="number" name="{{ name }}" value="{{ flashMessages.get(name) || value || ' ' }}" class="form-control {{ flashMessages.has(`errors.${name}`) ? 'is-invalid' : ' ' }}">
@@ -23,3 +37,4 @@
     </div>
   @end
 @end
+

@@ -2,6 +2,7 @@ import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Property from 'App/Models/Property'
 import Database from '@ioc:Adonis/Lucid/Database'
+import Category from 'App/Models/Category'
 
 export default class AdminProperty {
   propertySchema = schema.create({
@@ -11,6 +12,12 @@ export default class AdminProperty {
     surface: schema.number([rules.range(40, 100)]),
     description: schema.string([rules.minLength(10), rules.maxLength(25)]),
     reserved: schema.boolean.nullableAndOptional(),
+    categoryId: schema.number([
+      rules.exists({
+        column: Category.primaryKey,
+        table: Category.table,
+      }),
+    ]),
   })
 
   messages = {
@@ -37,8 +44,10 @@ export default class AdminProperty {
 
   async createView({ view }: HttpContextContract) {
     const property = new Property()
+    const categories = await Category.all()
     return view.render('admin/property/new', {
       property,
+      categories,
       controller: 'adminPropertyController',
     })
   }
@@ -53,8 +62,10 @@ export default class AdminProperty {
 
   async updateView({ view, params }: HttpContextContract) {
     const property = await Property.findOrFail(params.id)
+    const categories = await Category.all()
     return view.render('admin/property/edit', {
       property,
+      categories,
       controller: 'adminPropertyController',
     })
   }

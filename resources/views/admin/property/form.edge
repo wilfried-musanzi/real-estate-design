@@ -25,7 +25,7 @@
     </div>
 </div>
 <div class="row mb-4">
-    <div class="col-md-6">
+    <div class="col-md-4">
         @component('components/form', {
             name: "price",
             label: "Price",
@@ -33,11 +33,20 @@
         })
         @end
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         @component('components/form', {
             name: "surface",
             label: "Surface",
             value: property.surface
+        })
+        @end
+    </div>
+     <div class="col-md-4">
+        @component('components/form', {
+            name: "categoryId",
+            label: "Category Id",
+            type: "select",
+            options: categories.reduce((k, v) => ({...k, [v.id]: v.name}), {})
         })
         @end
     </div>

@@ -38,7 +38,7 @@
     </div>
     <nav aria-label="Page navigation example">
         <ul class="pagination">
-            @each(anchor in properties.getUrlsForRange(1, properties.lastPage))
+            @each(anchor in properties.getUrlsForRange(1, properties.lastPage))            
                 <li class="page-item">
                     <a class="page-link" href="{{ anchor.url }}">{{ anchor.page }}</a>
                 </li>

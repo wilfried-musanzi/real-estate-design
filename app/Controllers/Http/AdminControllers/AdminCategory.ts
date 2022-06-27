@@ -12,7 +12,7 @@ export default class AdminCategory {
   }
 
   async index({ view }: HttpContextContract) {
-    const categories = await Category.query().orderBy('id', 'asc')
+    const categories = await Category.all()
     return view.render('admin/category/index', {
       categories,
       controller: 'adminCategoryController',
