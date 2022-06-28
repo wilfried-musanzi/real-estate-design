@@ -14,6 +14,14 @@
       {{ flashMessages.get(`errors.${name}`)}}
     </div>
   @end
+@elseif(type == "email")
+  <label for="{{ name }}" class="mb-2">{{ label }}</label>
+  <input type="email" name="{{ name }}" value="{{ flashMessages.get(name) || value || ' ' }}"  class="form-control {{ flashMessages.has(`errors.${name}`) ? 'is-invalid' : ' ' }}">
+  @if(flashMessages.has(`errors.${name}`))
+    <div class="invalid-feedback">
+      {{ flashMessages.get(`errors.${name}`)}}
+    </div>
+  @end
 @elseif(type == "select")
   <label for="{{ name }}" class="mb-2">{{ label }}</label>
   <select name="{{ name }}" id="{{ name }}" class="form-control {{ flashMessages.has(`errors.${name}`) ? 'is-invalid' : ' ' }}">

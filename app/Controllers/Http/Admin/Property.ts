@@ -32,11 +32,12 @@ export default class AdminProperty {
   }
 
   async index({ view, request }: HttpContextContract) {
-    const limit = 2
+    const limit = 1
     const page = request.input('page', 1)
     const properties = await Database.from(Property.table).paginate(page, limit)
     properties.baseUrl('/admin/property')
     return view.render('admin/property/index', {
+      page,
       properties,
       controller: 'adminPropertyController',
     })
@@ -55,7 +56,7 @@ export default class AdminProperty {
   async create({ params, request, session, response }: HttpContextContract) {
     await this.handleRequest(params, request)
     session.flash({ success: 'Created Success' })
-    return response.redirect().toRoute('admin-property.index', {
+    return response.redirect().toRoute('property.index', {
       controller: 'adminPropertyController',
     })
   }
@@ -73,7 +74,7 @@ export default class AdminProperty {
   async update({ params, request, session, response }: HttpContextContract) {
     await this.handleRequest(params, request)
     session.flash({ success: 'Updated Success' })
-    return response.redirect().toRoute('admin-property.index', {
+    return response.redirect().toRoute('property.index', {
       controller: 'adminPropertyController',
     })
   }
@@ -82,7 +83,7 @@ export default class AdminProperty {
     const property = await Property.findOrFail(params.id)
     property.delete()
     session.flash({ success: 'Delete Success' })
-    return response.redirect().toRoute('admin-property.index', {
+    return response.redirect().toRoute('property.index', {
       controller: 'adminPropertyController',
     })
   }

@@ -33,7 +33,7 @@ export default class AdminCategory {
 
     await Category.create(payload)
     session.flash({ success: 'Created Success' })
-    return response.redirect().toRoute('admin-category.index', {
+    return response.redirect().toRoute('category.index', {
       controller: 'adminCategoryController',
     })
   }
@@ -54,7 +54,7 @@ export default class AdminCategory {
     const property = await Category.findOrFail(params.id)
     property.merge(payload).save()
     session.flash({ success: 'Updated Success' })
-    return response.redirect().toRoute('admin-category.index', {
+    return response.redirect().toRoute('category.index', {
       controller: 'adminCategoryController',
     })
   }
@@ -63,7 +63,7 @@ export default class AdminCategory {
     const property = await Category.findOrFail(params.id)
     property.delete()
     session.flash({ success: 'Delete Success' })
-    return response.redirect().toRoute('admin-category.index', {
+    return response.redirect().toRoute('category.index', {
       controller: 'adminCategoryController',
     })
   }

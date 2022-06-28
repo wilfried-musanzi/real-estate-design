@@ -1,30 +1,27 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', 'HomeController.index')
-Route.get('/admin', 'AdminControllers/AdminDashboard.index').as('admin')
+Route.get('/login', 'Auth/Auth.loginView')
 
-// Admin Property
-Route.get('/admin/property', 'AdminControllers/AdminProperty.index').as('admin-property.index')
-Route.get('/admin/property/new', 'AdminControllers/AdminProperty.createView').as(
-  'admin-property.new'
-)
-Route.post('/admin/property/new', 'AdminControllers/AdminProperty.create')
-Route.get('/admin/property/edit/:id', 'AdminControllers/AdminProperty.updateView').as(
-  'admin-property.edit'
-)
-Route.post('/admin/property/edit/:id', 'AdminControllers/AdminProperty.update')
-Route.delete('/admin/property/delete/:id', 'AdminControllers/AdminProperty.delete').as(
-  'admin-property.delete'
-)
+Route.group(() => {
+  Route.group(() => {
+    Route.get('/', 'Admin/Dashboard.index').as('admin')
+    Route.group(() => {
+      Route.get('/', 'Admin/Property.index').as('property.index')
+      Route.get('/new', 'Admin/Property.createView').as('property.new')
+      Route.post('/new', 'Admin/Property.create')
+      Route.get('/edit/:id', 'Admin/Property.updateView').as('property.edit')
+      Route.post('/edit/:id', 'Admin/Property.update')
+      Route.delete('/delete/:id', 'Admin/Property.delete').as('property.delete')
+    }).prefix('/property')
 
-// Admin Categories
-Route.get('/admin/category/', 'AdminControllers/AdminCategory.index').as('admin-category.index')
-Route.get('/admin/category/new', 'AdminControllers/AdminCategory.view').as('admin-category.new')
-Route.post('/admin/category/new', 'AdminControllers/AdminCategory.addNew')
-Route.get('/admin/category/edit/:id', 'AdminControllers/AdminCategory.show').as(
-  'admin-category.edit'
-)
-Route.post('/admin/category/edit/:id', 'AdminControllers/AdminCategory.edit')
-Route.post('/admin/category/delete/:id', 'AdminControllers/AdminCategory.delete').as(
-  'admin-category.delete'
-)
+    Route.group(() => {
+      Route.get('/', 'Admin/Category.index').as('category.index')
+      Route.get('/new', 'Admin/Category.view').as('category.new')
+      Route.post('/new', 'Admin/Category.addNew')
+      Route.get('/edit/:id', 'Admin/Category.show').as('category.edit')
+      Route.post('/edit/:id', 'Admin/Category.edit')
+      Route.post('/delete/:id', 'Admin/Category.delete').as('category.delete')
+    }).prefix('/category')
+  }).prefix('/admin')
+}).middleware('auth')

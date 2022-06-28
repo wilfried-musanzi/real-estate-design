@@ -24,8 +24,8 @@
                 <td>{{ property.price }}</td>
                 <td>{{ property.reserved ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ route("admin-property.edit", {id: property.id}) }}" class="btn btn-primary">Editer</a>
-                    <form action="{{ route("admin-property.delete", { id: property.id})}}?_method=DELETE" method="POST" style="display:inline-block" onclick="return confirm('Really sure to delete ?')">
+                    <a href="{{ route("property.edit", {id: property.id}) }}" class="btn btn-primary">Editer</a>
+                    <form action="{{ route("property.delete", { id: property.id})}}?_method=DELETE" method="POST" style="display:inline-block" onclick="return confirm('Really sure to delete ?')">
                         <button type="submit" class="btn btn-danger">Supprimer</button>
                     </form>
                 </td>
@@ -34,15 +34,25 @@
         </tbody>
     </table>
     <div class="d-flex justify-content-end mb-4">
-        <a href="{{ route("admin-property.new")}}" class="btn btn-primary">Add New</a>
+        <a href="{{ route("property.new")}}" class="btn btn-primary">Add New</a>
     </div>
-    <nav aria-label="Page navigation example">
+    <nav>
         <ul class="pagination">
+            <li class="page-item {{ page == 1 ? 'disabled' : ' '}}">
+                <a class="page-link" href="{{ page == 1 ? ' ' :  '?page=' + (+page-1) }}">
+                    <span aria-hidden="false">&laquo;</span>
+                </a>
+            </li>
             @each(anchor in properties.getUrlsForRange(1, properties.lastPage))            
                 <li class="page-item">
-                    <a class="page-link" href="{{ anchor.url }}">{{ anchor.page }}</a>
+                    <a class="page-link {{ anchor.isActive ? 'active' : ' '}}" href="{{ anchor.url }}">{{ anchor.page }}</a>
                 </li>
             @end
+            <li class="page-item {{ page == properties.lastPage ? 'disabled' : ' '}}">
+                <a class="page-link" href="{{ page == properties.lastPage ? ' ' : '?page='+ (+page + 1) }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
         </ul>
     </nav>
     </nav>

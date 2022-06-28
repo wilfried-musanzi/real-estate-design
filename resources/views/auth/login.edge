@@ -1,0 +1,24 @@
+@layout('admin/base')
+@set('title', "Administration new")
+@section('body')
+    <h4>Login</h4>
+    <form action="" method="post" enctype="multipart/form-data" class="form-group">
+        <div class="mt-4 mb-2">
+            @component('components/form', {
+                name: "email",
+                label: "Email",
+                type: "email",
+            })
+            @end
+        </div>
+        <div class="">
+            @component('components/form', {
+                name: "password",
+                label: "Password",
+                type: "number",
+            })
+            @end
+        </div>
+        <button class="btn btn-primary mt-4" type="submit" >Se connecter</button>
+    </form>
+@end
