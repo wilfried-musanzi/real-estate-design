@@ -1,36 +1,10 @@
-import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Property from 'App/Models/Property'
 import Database from '@ioc:Adonis/Lucid/Database'
 import Category from 'App/Models/Category'
+import PropertyValidator from 'App/Validators/PropertyValidator'
 
 export default class AdminProperty {
-  propertySchema = schema.create({
-    title: schema.string([rules.minLength(5), rules.maxLength(15)]),
-    town: schema.string([rules.minLength(3)]),
-    price: schema.number([rules.range(400, 500)]),
-    surface: schema.number([rules.range(40, 100)]),
-    description: schema.string([rules.minLength(10), rules.maxLength(25)]),
-    reserved: schema.boolean.nullableAndOptional(),
-    categoryId: schema.number([
-      rules.exists({
-        column: Category.primaryKey,
-        table: Category.table,
-      }),
-    ]),
-  })
-
-  messages = {
-    'title.minLength': 'Titre inferieur a 5',
-    'title.maxLength': 'Titre superieur a 15',
-    'town.minLength': 'Ville inferieur a 3',
-    'price.range': 'Le prix doit etre entre 400$ et 500$',
-    'surface.range': 'La surface doit etre entre 40m2 et 100m2',
-    'description.minLength': 'La description inferieur a 10',
-    'description.maxLength': 'La description superieur a 25',
-    'required': 'Le champ ne peut pas etre vide !',
-  }
-
   async index({ view, request }: HttpContextContract) {
     const limit = 1
     const page = request.input('page', 1)
@@ -94,10 +68,7 @@ export default class AdminProperty {
   ) {
     const id = params.id
     const property = id ? await Property.findOrFail(id) : new Property()
-    const payload = await request.validate({
-      schema: this.propertySchema,
-      messages: this.messages,
-    })
+    const payload = await request.validate(PropertyValidator)
     property.merge({ ...payload, reserved: payload.reserved || false }).save()
   }
 }

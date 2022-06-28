@@ -1,16 +1,8 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import Category from 'App/Models/Category'
+import CategoryValidator from 'App/Validators/CategoryValidator'
 
 export default class AdminCategory {
-  categorySchema = schema.create({
-    name: schema.string([rules.minLength(2)]),
-  })
-  messages = {
-    'required': 'Le champ ne peut pas etre vide !',
-    'name.minLength': 'Taille inferieur a 2',
-  }
-
   async index({ view }: HttpContextContract) {
     const categories = await Category.all()
     return view.render('admin/category/index', {
@@ -26,11 +18,7 @@ export default class AdminCategory {
   }
 
   async addNew({ request, session, response }: HttpContextContract) {
-    const payload = await request.validate({
-      schema: this.categorySchema,
-      messages: this.messages,
-    })
-
+    const payload = await request.validate(CategoryValidator)
     await Category.create(payload)
     session.flash({ success: 'Created Success' })
     return response.redirect().toRoute('category.index', {
@@ -47,10 +35,7 @@ export default class AdminCategory {
   }
 
   async edit({ params, request, session, response }: HttpContextContract) {
-    const payload = await request.validate({
-      schema: this.categorySchema,
-      messages: this.messages,
-    })
+    const payload = await request.validate(CategoryValidator)
     const property = await Category.findOrFail(params.id)
     property.merge(payload).save()
     session.flash({ success: 'Updated Success' })

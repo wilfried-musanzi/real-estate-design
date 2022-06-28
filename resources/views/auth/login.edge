@@ -2,6 +2,7 @@
 @set('title', "Administration new")
 @section('body')
     <h4>Login</h4>
+    @include('partials/flash')
     <form action="" method="post" enctype="multipart/form-data" class="form-group">
         <div class="mt-4 mb-2">
             @component('components/form', {
@@ -15,7 +16,7 @@
             @component('components/form', {
                 name: "password",
                 label: "Password",
-                type: "number",
+                type: "text",
             })
             @end
         </div>
