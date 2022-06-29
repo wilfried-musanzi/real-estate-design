@@ -3,6 +3,7 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.get('/', 'HomeController.index').as('home')
 Route.get('/login', 'Auth/Auth.loginView').as('login')
 Route.post('/login', 'Auth/Auth.login')
+Route.get('/logout', 'Auth/Auth.logout').as('logout')
 
 Route.group(() => {
   Route.group(() => {
