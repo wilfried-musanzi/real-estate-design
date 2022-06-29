@@ -9,6 +9,7 @@ export default class PropertyValidator {
     surface: schema.number([rules.range(40, 100)]),
     description: schema.string([rules.minLength(10), rules.maxLength(25)]),
     reserved: schema.boolean.nullableAndOptional(),
+    thumb: schema.file.optional(),
     categoryId: schema.number([
       rules.exists({
         column: Category.primaryKey,

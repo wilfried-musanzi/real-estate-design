@@ -1,7 +1,9 @@
+import Application from '@ioc:Adonis/Core/Application'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Property from 'App/Models/Property'
 import Database from '@ioc:Adonis/Lucid/Database'
 import Category from 'App/Models/Category'
+import Drive from '@ioc:Adonis/Core/Drive'
 import PropertyValidator from 'App/Validators/PropertyValidator'
 
 export default class AdminProperty {
@@ -69,6 +71,15 @@ export default class AdminProperty {
     const id = params.id
     const property = id ? await Property.findOrFail(id) : new Property()
     const payload = await request.validate(PropertyValidator)
-    property.merge({ ...payload, reserved: payload.reserved || false }).save()
+    const thumb = request.file('thumb')
+    if (thumb) {
+      if (property.thumb) {
+        await Drive.delete(property.thumb)
+      }
+      await thumb.move(Application.tmpPath('uploads'))
+    }
+    property
+      .merge({ ...payload, reserved: payload.reserved || false, thumb: thumb?.fileName })
+      .save()
   }
 }
