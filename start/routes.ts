@@ -26,4 +26,4 @@ Route.group(() => {
       Route.post('/delete/:id', 'Admin/Category.delete').as('category.delete')
     }).prefix('/category')
   }).prefix('/admin')
-}).middleware('auth')
+}).middleware(['auth', 'secureBackend'])

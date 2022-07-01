@@ -1,10 +1,11 @@
+import Database from '@ioc:Adonis/Lucid/Database'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Category from 'App/Models/Category'
 import CategoryValidator from 'App/Validators/CategoryValidator'
 
 export default class AdminCategory {
   async index({ view }: HttpContextContract) {
-    const categories = await Category.all()
+    const categories = await Database.from(Category.table).orderBy('id', 'asc')
     return view.render('admin/category/index', {
       categories,
       controller: 'adminCategoryController',

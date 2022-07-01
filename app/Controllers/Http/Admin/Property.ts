@@ -8,7 +8,7 @@ import PropertyValidator from 'App/Validators/PropertyValidator'
 
 export default class AdminProperty {
   async index({ view, request }: HttpContextContract) {
-    const limit = 1
+    const limit = 10
     const page = request.input('page', 1)
     const properties = await Database.from(Property.table)
       .orderBy('id', 'asc')

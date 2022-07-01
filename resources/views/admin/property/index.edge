@@ -20,8 +20,8 @@
                 <td>{{ property.id }}</td>
                 <td>{{ property.title }}</td>
                 <td>{{ property.town }}</td>
-                <td>{{ property.price }}</td>
-                <td>{{ property.price }}</td>
+                <td>{{ property.price }} $</td>
+                <td>{{ property.surface }} m2</td>
                 <td>{{ property.reserved ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ route("property.edit", {id: property.id}) }}" class="btn btn-primary">Editer</a>

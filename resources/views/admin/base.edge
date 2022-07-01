@@ -20,10 +20,10 @@
                 <a class="nav-link {{ controller == 'adminCategoryController' ? 'active' : ' '}}" href="{{ route("category.index") }}">Categories</a>
             </div>
             @if(auth.user)
-            <div class="navbar-nav">
-                <p style="font-size: 15px; color: white; margin: 17px 5px;">{{ auth.user.email }}</p>
-                <a class="btn btn-danger" href="{{ route("logout") }}" style="margin: 10px;">Deconnexion</a>
-            </div>
+                <div class="navbar-nav">
+                    <p style="font-size: 15px; color: white; margin: 10px 5px;">{{ auth.user.email }}</p>
+                    <a class="btn btn-danger" href="{{ route("logout") }}" style="margin: 3px;">Deconnexion</a>
+                </div>
             @end
         </div>
     </nav>

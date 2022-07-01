@@ -19,6 +19,12 @@
         <li class="nav__item"><a href="" class="nav__link">immeuble</a></li>
         <li class="nav__item"><a href="" class="nav__link">connextion</a></li>
       </ul>
+      @if(auth.user)
+          <div class="navbar-nav">
+              <p style="font-size: 15px; color: white; margin: 10px 5px;">{{ auth.user.email }}</p>
+              <a class="btn btn-danger" href="{{ route("logout") }}" style="margin: 3px;">Deconnexion</a>
+          </div>
+      @end
     </nav>
   </header>
   @!section('body')
