@@ -10,7 +10,9 @@ export default class AdminProperty {
   async index({ view, request }: HttpContextContract) {
     const limit = 1
     const page = request.input('page', 1)
-    const properties = await Database.from(Property.table).paginate(page, limit)
+    const properties = await Database.from(Property.table)
+      .orderBy('id', 'asc')
+      .paginate(page, limit)
     properties.baseUrl('/admin/property')
     return view.render('admin/property/index', {
       page,

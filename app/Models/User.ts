@@ -13,7 +13,7 @@ export default class User extends BaseModel {
   public password: string
 
   @column()
-  public rememberMeToken?: string
+  public role: string
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
@@ -22,7 +22,7 @@ export default class User extends BaseModel {
   public updatedAt: DateTime
 
   @beforeSave()
-  public static async hashPassword (user: User) {
+  public static async hashPassword(user: User) {
     if (user.$dirty.password) {
       user.password = await Hash.make(user.password)
     }
