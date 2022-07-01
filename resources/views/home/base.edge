@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600&display=swap" rel="stylesheet">
-  <title>{{ title }}</title>
-  @entryPointScripts('app')
-  @entryPointStyles('app')
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600&display=swap" rel="stylesheet">
+    <title>{{ title }}</title>
+    @entryPointStyles('app')
+    @entryPointScripts('app')
 </head>
 <body>
-  <header class="header">
-    <h3 class="header__logo">passion <span class="logo--green">education</span></h3>
-    <nav class="header__nav">
-      <ul class="nav__list">
-        <li class="nav__item"><a href="" class="nav__link">acceuil</a></li>
-        <li class="nav__item"><a href="" class="nav__link">immeuble</a></li>
-        <li class="nav__item"><a href="" class="nav__link">connextion</a></li>
-      </ul>
-      @if(auth.user)
-          <div class="navbar-nav">
-              <p style="font-size: 15px; color: white; margin: 10px 5px;">{{ auth.user.email }}</p>
-              <a class="btn btn-danger" href="{{ route("logout") }}" style="margin: 3px;">Deconnexion</a>
-          </div>
-      @end
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top">
+        <div class="container">
+            <div class="navbar-nav">
+                <a class="nav-link {{ controller == 'homeController' ? 'active' : ' '}}" href="{{ route("home") }}">Home</a>
+                @if(await bouncer.allows('accedToAdminPanel'))
+                    <a class="nav-link " href="{{ route("admin") }}">Dashboard</a>
+                @else
+                    <a class="nav-link {{ controller == 'propertiesController' ? 'active' : ' '}}" href="{{ route("properties.index") }}">Properties</a>
+                @end
+            </div>
+            <div class="navbar-nav">
+            @if(auth.isLoggedIn)
+                <p style="font-size: 15px; color: white; margin: 10px 5px;">{{ auth.user.email }}</p>
+                <a class="btn btn-danger" href="{{ route("logout") }}" style="margin: 3px;">Deconnexion</a>
+            @else
+                <a class="nav-link {{ controller == 'loginController' ? 'active' : ' '}}" href="{{ route("login") }}">Connexion</a>
+                <a class="nav-link {{ controller == 'signupController' ? 'active' : ' '}}" href="{{ route("signup") }}">Inscription</a> 
+            @end
+            </div>
+        </div>
     </nav>
-  </header>
-  @!section('body')
+    <div class="container center">
+        @!section('body')
+    </div>
 </body>
 </html>

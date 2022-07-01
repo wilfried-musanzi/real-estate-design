@@ -12,7 +12,7 @@
             })
             @end
         </div>
-        <div class="">
+        <div class="mb-4">
             @component('components/form', {
                 name: "password",
                 label: "Password",
@@ -20,6 +20,14 @@
             })  
             @end
         </div>
-        <button class="btn btn-primary mt-4" type="submit" >Connexion</button>
+        <div class="">
+            @component('components/form', {
+                name: "confirm-password",
+                label: "Confirm Password",
+                type: "password",
+            })  
+            @end
+        </div>
+        <button class="btn btn-primary mt-4" type="submit" >Inscription</button>
     </form>
 @end

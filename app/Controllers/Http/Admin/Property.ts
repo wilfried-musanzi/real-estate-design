@@ -78,7 +78,7 @@ export default class AdminProperty {
       if (property.thumb) {
         await Drive.delete(property.thumb)
       }
-      await thumb.move(Application.tmpPath('uploads'))
+      await thumb.move(Application.resourcesPath('images'))
     }
     property
       .merge({ ...payload, reserved: payload.reserved || false, thumb: thumb?.fileName })

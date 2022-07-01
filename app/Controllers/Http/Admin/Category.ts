@@ -5,7 +5,7 @@ import CategoryValidator from 'App/Validators/CategoryValidator'
 
 export default class AdminCategory {
   async index({ view }: HttpContextContract) {
-    const categories = await Database.from(Category.table).orderBy('id', 'asc')
+    const categories = await Database.from(Category.table)
     return view.render('admin/category/index', {
       categories,
       controller: 'adminCategoryController',

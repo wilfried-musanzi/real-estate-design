@@ -1,9 +1,14 @@
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', 'HomeController.index').as('home')
-Route.get('/login', 'Auth/Auth.loginView').as('login')
-Route.post('/login', 'Auth/Auth.login')
-Route.get('/logout', 'Auth/Auth.logout').as('logout')
+Route.group(() => {
+  Route.get('/', 'HomeController.index').as('home')
+  Route.get('/properties', 'PropertiesController.index').as('properties.index')
+  Route.get('/login', 'Auth/Auth.loginView').as('login')
+  Route.post('/login', 'Auth/Auth.login')
+  Route.get('/signup', 'Auth/Auth.signupView').as('signup')
+  Route.post('/signup', 'Auth/Auth.signup')
+  Route.get('/logout', 'Auth/Auth.logout').as('logout')
+}).middleware('silentAuth')
 
 Route.group(() => {
   Route.group(() => {

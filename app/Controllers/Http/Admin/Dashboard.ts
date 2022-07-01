@@ -10,8 +10,6 @@ export default class AdminDashboard {
     const category = await Category.query().count('id')
     let [{ $extras: extraCat }] = category
     const { count: countCat } = extraCat
-    // const allowed = await bouncer.allows('accedToAdminPanel')
-
     return view.render('admin/dashboard', {
       countProp,
       countCat,

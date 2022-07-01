@@ -15,11 +15,12 @@
     <nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top">
         <div class="container">
             <div class="navbar-nav">
+                <a class="nav-link" href="{{ route("home") }}">Home</a>
                 <a class="nav-link {{ controller == 'adminDashboard' ? 'active' : ' '}}" href="{{ route("admin") }}">Dashboard</a>
                 <a class="nav-link {{ controller == 'adminPropertyController' ? 'active' : ' '}}" href="{{ route("property.index") }}">Properties</a>
                 <a class="nav-link {{ controller == 'adminCategoryController' ? 'active' : ' '}}" href="{{ route("category.index") }}">Categories</a>
             </div>
-            @if(auth.user)
+            @if(auth.isLoggedIn)
                 <div class="navbar-nav">
                     <p style="font-size: 15px; color: white; margin: 10px 5px;">{{ auth.user.email }}</p>
                     <a class="btn btn-danger" href="{{ route("logout") }}" style="margin: 3px;">Deconnexion</a>
