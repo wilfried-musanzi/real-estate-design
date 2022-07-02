@@ -2,7 +2,7 @@
 @set('title', "Administration new")
 @section('body')
     <h4>Modifie the category {{ category.name }}</h4>
-    <form class="form-group" action="" method="post" enctype="multipart/form-data">
+    <form class="form-group" action="" method="post" enctype="multipart/form-data" data-turbo="false">
        <div class="mb-4">
          @component('components/form', {
             name: "name",
@@ -12,6 +12,6 @@
         })
         @end
        </div>
-        <button class="btn btn-primary" type="submit" >Validate creation</button>
+        <button class="btn btn-primary" type="submit" >Validate edition</button>
     </form>
 @end

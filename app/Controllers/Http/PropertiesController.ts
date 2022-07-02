@@ -14,6 +14,7 @@ export default class PropertiesController {
     return view.render('home/properties', {
       controller: 'propertiesController',
       properties,
+      page,
     })
   }
 }

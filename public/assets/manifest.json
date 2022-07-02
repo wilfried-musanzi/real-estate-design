@@ -1,6 +1,10 @@
 {
-  "assets/app.css": "http://localhost:38279/assets/app.css",
-  "assets/app.js": "http://localhost:38279/assets/app.js",
-  "assets/images/default.png": "http://localhost:38279/assets/images/default.ddfb54d3.png",
-  "assets/images/building-g71aaa01bb_1920.jpg": "http://localhost:38279/assets/images/building-g71aaa01bb_1920.1df836bc.jpg"
+  "assets/app.css": "http://localhost:44045/assets/app.css",
+  "assets/app.js": "http://localhost:44045/assets/app.js",
+  "assets/images/building-g71aaa01bb_1920.jpg": "http://localhost:44045/assets/images/building-g71aaa01bb_1920.1df836bc.jpg",
+  "assets/images/default.png": "http://localhost:44045/assets/images/default.ddfb54d3.png",
+  "assets/images/WhatsApp Image 2022-06-25 at 6.36.02 PM.jpeg": "http://localhost:44045/assets/images/WhatsApp Image 2022-06-25 at 6.36.02 PM.09be0e8c.jpeg",
+  "assets/images/WhatsApp Image 2022-06-25 at 6.36.02 PM (1).jpeg": "http://localhost:44045/assets/images/WhatsApp Image 2022-06-25 at 6.36.02 PM (1).fca66d36.jpeg",
+  "assets/images/WhatsApp Image 2022-06-25 at 6.36.08 PM.jpeg": "http://localhost:44045/assets/images/WhatsApp Image 2022-06-25 at 6.36.08 PM.c0fb0e49.jpeg",
+  "assets/images/WhatsApp Image 2022-06-25 at 6.36.03 PM.jpeg": "http://localhost:44045/assets/images/WhatsApp Image 2022-06-25 at 6.36.03 PM.8bf6c9bb.jpeg"
 }
