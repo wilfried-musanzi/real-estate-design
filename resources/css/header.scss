@@ -5,22 +5,8 @@ body {
 .center {
   margin-top: 5rem;
 }
+
 .turbo-progress-bar {
   height: 5px;
   background-color: rgb(7, 11, 43);
-}
-
-section {
-  animation: fadeIn 0.2s ease-in backwards;
-}
-
-@keyframes fadeIn {
-  0% {
-    transform: translateY(2rem);
-    opacity: 0;
-  }
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }

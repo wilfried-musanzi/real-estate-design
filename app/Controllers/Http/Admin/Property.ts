@@ -32,7 +32,7 @@ export default class AdminProperty {
   }
 
   async create({ params, request, session, response }: HttpContextContract) {
-    await this.handleRequest(params, request)
+    await this.handleRequest({ params, request })
     session.flash({ success: 'Created Success' })
     return response.redirect().toRoute('property.index', {
       controller: 'adminPropertyController',
@@ -50,7 +50,7 @@ export default class AdminProperty {
   }
 
   async update({ params, request, session, response }: HttpContextContract) {
-    await this.handleRequest(params, request)
+    await this.handleRequest({ params, request })
     session.flash({ success: 'Updated Success' })
     return response.redirect().toRoute('property.index', {
       controller: 'adminPropertyController',
@@ -66,10 +66,7 @@ export default class AdminProperty {
     })
   }
 
-  async handleRequest(
-    params: HttpContextContract['params'],
-    request: HttpContextContract['request']
-  ) {
+  async handleRequest({ params, request }) {
     const id = params.id
     const property = id ? await Property.findOrFail(id) : new Property()
     const payload = await request.validate(PropertyValidator)

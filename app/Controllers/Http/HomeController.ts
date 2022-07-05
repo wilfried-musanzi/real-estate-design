@@ -7,7 +7,7 @@ export default class HomeController {
     const properties = await Database.from(Property.table)
       .orderBy('id', 'asc')
       .where('reserved', false)
-      .limit(4)
+      .limit(5)
     return view.render('home/index', {
       controller: 'homeController',
       properties,
