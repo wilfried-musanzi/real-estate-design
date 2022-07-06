@@ -11,13 +11,13 @@
             </tr>
         </thead>
         <tbody>
-            @each(category in categories)
+            @each(municipality in municipalities)
               <tr>
-                <td>{{ category.id }}</td>
-                <td>{{ category.name }}</td>
+                <td>{{ municipality.id }}</td>
+                <td>{{ municipality.name }}</td>
                 <td>
-                    <a href="{{ route("category.edit", { id: category.id }) }}" class="btn btn-primary">Editer</a>
-                    <form action="{{ route("category.delete", { id: category.id }) }}" method="post" style="display:inline-block">
+                    <a href="{{ route("municipality.edit", { id: municipality.id }) }}" class="btn btn-primary">Editer</a>
+                    <form action="{{ route("municipality.delete", { id: municipality.id }) }}" method="post" style="display:inline-block">
                         <button type="submit" class="btn btn-danger">Supprimer</button>
                     </form>
                 </td>
@@ -26,6 +26,6 @@
         </tbody>
     </table>
     <div class="d-flex justify-content-end mb-4">
-        <a href="{{ route("category.new")}}" class="btn btn-primary">Add New</a>
+        <a href="{{ route("municipality.new")}}" class="btn btn-primary">Add New</a>
     </div>
 @end

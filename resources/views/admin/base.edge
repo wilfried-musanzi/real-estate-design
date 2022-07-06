@@ -18,7 +18,7 @@
                 <a class="nav-link" href="{{ route("home") }}">Home</a>
                 <a class="nav-link {{ controller == 'adminDashboard' ? 'active' : ' '}}" href="{{ route("admin") }}" >Dashboard</a>
                 <a class="nav-link {{ controller == 'adminPropertyController' ? 'active' : ' '}}" href="{{ route("property.index") }}">Properties</a>
-                <a class="nav-link {{ controller == 'adminCategoryController' ? 'active' : ' '}}" href="{{ route("category.index") }}">Categories</a>
+                <a class="nav-link {{ controller == 'adminMunicipalityController' ? 'active' : ' '}}" href="{{ route("municipality.index") }}">Municipalities</a>
             </div>
             @if(auth.isLoggedIn)
                 <div class="navbar-nav">

@@ -5063,6 +5063,11 @@ htmlparser2@^6.1.0:
     domutils "^2.5.2"
     entities "^2.0.0"
 
+htmx.org@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/htmx.org/-/htmx.org-1.7.0.tgz#4b1889e177b851449c217987512cac005e82cfda"
+  integrity sha512-wIQ3yNq7yiLTm+6BhV7Z8qKKTzEQv9xN/I4QsN5FvdGi69SNWTsSMlhH69HPa1rpZ8zSq1A/e7gTbTySxliP8g==
+
 http-cache-semantics@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/http-cache-semantics/-/http-cache-semantics-4.1.0.tgz#49e91c5cbf36c9b94bcfcd71c23d5249ec74e390"

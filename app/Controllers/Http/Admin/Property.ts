@@ -2,9 +2,9 @@ import Application from '@ioc:Adonis/Core/Application'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Property from 'App/Models/Property'
 import Database from '@ioc:Adonis/Lucid/Database'
-import Category from 'App/Models/Category'
 import Drive from '@ioc:Adonis/Core/Drive'
 import PropertyValidator from 'App/Validators/PropertyValidator'
+import Municipality from 'App/Models/Municipality'
 
 export default class AdminProperty {
   async index({ view, request }: HttpContextContract) {
@@ -23,16 +23,16 @@ export default class AdminProperty {
 
   async createView({ view }: HttpContextContract) {
     const property = new Property()
-    const categories = await Category.all()
+    const municipalities = await Municipality.all()
     return view.render('admin/property/new', {
       property,
-      categories,
+      municipalities,
       controller: 'adminPropertyController',
     })
   }
 
   async create({ params, request, session, response }: HttpContextContract) {
-    await this.handleRequest({ params, request })
+    await this.handleRequest(params, request)
     session.flash({ success: 'Created Success' })
     return response.redirect().toRoute('property.index', {
       controller: 'adminPropertyController',
@@ -41,16 +41,16 @@ export default class AdminProperty {
 
   async updateView({ view, params }: HttpContextContract) {
     const property = await Property.findOrFail(params.id)
-    const categories = await Category.all()
+    const municipalities = await Municipality.all()
     return view.render('admin/property/edit', {
       property,
-      categories,
+      municipalities,
       controller: 'adminPropertyController',
     })
   }
 
   async update({ params, request, session, response }: HttpContextContract) {
-    await this.handleRequest({ params, request })
+    await this.handleRequest(params, request)
     session.flash({ success: 'Updated Success' })
     return response.redirect().toRoute('property.index', {
       controller: 'adminPropertyController',
@@ -66,7 +66,10 @@ export default class AdminProperty {
     })
   }
 
-  async handleRequest({ params, request }) {
+  async handleRequest(
+    params: HttpContextContract['params'],
+    request: HttpContextContract['request']
+  ) {
     const id = params.id
     const property = id ? await Property.findOrFail(id) : new Property()
     const payload = await request.validate(PropertyValidator)

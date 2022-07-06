@@ -1,6 +1,6 @@
-import Category from 'App/Models/Category'
 import { DateTime } from 'luxon'
 import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
+import Municipality from './Municipality'
 
 export default class Property extends BaseModel {
   @column({ isPrimary: true })
@@ -11,9 +11,6 @@ export default class Property extends BaseModel {
 
   @column()
   public description: string | null
-
-  @column()
-  public town: string | null
 
   @column()
   public price: number
@@ -27,11 +24,11 @@ export default class Property extends BaseModel {
   @column()
   public reserved: boolean
 
-  @belongsTo(() => Category)
-  public category: BelongsTo<typeof Category>
+  @belongsTo(() => Municipality)
+  public municipality: BelongsTo<typeof Municipality>
 
   @column()
-  public categoryId: number
+  public municipalityId: number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

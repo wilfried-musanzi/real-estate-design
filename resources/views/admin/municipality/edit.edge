@@ -1,14 +1,14 @@
 @layout('admin/base')
 @set('title', "Administration new")
 @section('body')
-    <h4>Modifie the category {{ category.name }}</h4>
+    <h4>Modify {{ municipality.name }}</h4>
     <form class="form-group" action="" method="post" enctype="multipart/form-data" data-turbo="false">
        <div class="mb-4">
          @component('components/form', {
             name: "name",
             label: "Name",
             type: "text",
-            value: category.name
+            value: municipality.name
         })
         @end
        </div>

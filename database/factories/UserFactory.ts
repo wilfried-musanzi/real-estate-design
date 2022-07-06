@@ -3,7 +3,8 @@ import Factory from '@ioc:Adonis/Lucid/Factory'
 
 export default Factory.define(User, () => {
   return {
-    email: 'user@user.com',
-    password: '123456',
+    email: 'admin@admin',
+    password: '1234',
+    role: 'admin',
   }
 }).build()

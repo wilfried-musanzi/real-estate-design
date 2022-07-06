@@ -1,5 +1,5 @@
 <div class="row mb-4">
-    <div class="col-md-4">
+    <div class="col-md-6">
         @component('components/form', {
             name: "title",
             label: "Title",
@@ -8,16 +8,7 @@
         })
         @end
     </div>
-    <div class="col-md-4">
-        @component('components/form', {
-            name: "town",
-            label: "Town",
-            type: "text",
-            value: property.town
-        })
-        @end
-    </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
         <input class="form-check-input" name="reserved" type="checkbox" id="reserved" {{ property.reserved ? 'checked' : ' ' }}>
         <label class="form-check-label" for="reserved">
             Reserved
@@ -45,11 +36,11 @@
 <div class="row mb-4">
     <div class="col-md-3">
         @component('components/form', {
-            name: "categoryId",
-            label: "Category Id",
+            name: "municipalityId",
+            label: "Municipality",
             type: "select",
-            value: property.categoryId,
-            options: categories.reduce((k, v) => ({...k, [v.id]: v.name}), {})
+            value: property.municipalityId,
+            options: municipalities.reduce((k, v) => ({...k, [v.id]: v.name}), {})
         })
         @end
     </div>

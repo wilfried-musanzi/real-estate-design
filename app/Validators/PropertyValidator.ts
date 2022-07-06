@@ -1,19 +1,18 @@
 import { schema, CustomMessages, rules } from '@ioc:Adonis/Core/Validator'
-import Category from 'App/Models/Category'
+import Municipality from 'App/Models/Municipality'
 
 export default class PropertyValidator {
   public schema = schema.create({
     title: schema.string([rules.minLength(5), rules.maxLength(30)]),
-    town: schema.string([rules.minLength(3)]),
     price: schema.number([rules.range(500, 1000)]),
     surface: schema.number([rules.range(50, 100)]),
     description: schema.string([rules.minLength(10), rules.maxLength(100)]),
     reserved: schema.boolean.nullableAndOptional(),
     thumb: schema.file.optional(),
-    categoryId: schema.number([
+    municipalityId: schema.number([
       rules.exists({
-        column: Category.primaryKey,
-        table: Category.table,
+        column: Municipality.primaryKey,
+        table: Municipality.table,
       }),
     ]),
   })

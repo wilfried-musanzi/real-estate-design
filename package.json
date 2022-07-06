@@ -67,6 +67,7 @@
     "@adonisjs/view": "^6.1.0",
     "@hotwired/turbo": "^7.1.0",
     "alpinejs": "^3.10.2",
+    "htmx.org": "^1.7.0",
     "luxon": "^2.4.0",
     "pg": "^8.7.3",
     "phc-argon2": "^1.1.3",

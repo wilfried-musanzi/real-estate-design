@@ -6,9 +6,9 @@ export default class extends BaseSchema {
   public async up() {
     this.schema.alterTable(this.tableName, (table) => {
       table
-        .integer('category_id')
+        .integer('municipality_id')
         .unsigned()
-        .references('categories.id')
+        .references('municipalities.id')
         .onDelete('SET NULL')
         .nullable()
     })
@@ -16,7 +16,7 @@ export default class extends BaseSchema {
 
   public async down() {
     this.schema.alterTable(this.tableName, (table) => {
-      table.dropColumn('category_id')
+      table.dropColumn('municipality_id')
     })
   }
 }
