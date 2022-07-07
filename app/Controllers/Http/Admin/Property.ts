@@ -1,7 +1,6 @@
 import Application from '@ioc:Adonis/Core/Application'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Property from 'App/Models/Property'
-import Database from '@ioc:Adonis/Lucid/Database'
 import Drive from '@ioc:Adonis/Core/Drive'
 import PropertyValidator from 'App/Validators/PropertyValidator'
 import Municipality from 'App/Models/Municipality'
@@ -10,9 +9,11 @@ export default class AdminProperty {
   async index({ view, request }: HttpContextContract) {
     const limit = 10
     const page = request.input('page', 1)
-    const properties = await Database.from(Property.table)
+    const properties = await Property.query()
       .orderBy('id', 'asc')
+      .preload('municipality')
       .paginate(page, limit)
+
     properties.baseUrl('/admin/property')
     return view.render('admin/property/index', {
       page,

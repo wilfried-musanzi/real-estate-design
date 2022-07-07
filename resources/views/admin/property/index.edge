@@ -7,7 +7,7 @@
             <tr>
                 <th>#</th>
                 <th>Title</th>
-                <th>Town</th>
+                <th>Municipality</th>
                 <th>Price</th>
                 <th>Surface</th>
                 <th>Reserved</th>
@@ -19,7 +19,7 @@
               <tr>
                 <td>{{ property.id }}</td>
                 <td>{{ property.title }}</td>
-                <td>{{ property.town }}</td>
+                <td>{{ property.municipality ? property.municipality.name : ' ' }}</td>
                 <td>{{ property.price }} $</td>
                 <td>{{ property.surface }} m2</td>
                 <td>{{ property.reserved ? 'Yes' : 'No' }}</td>
