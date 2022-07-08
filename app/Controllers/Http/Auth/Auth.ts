@@ -18,7 +18,7 @@ export default class AuthController {
   async login({ request, auth, response, session }: HttpContextContract) {
     const payload = await request.validate(LoginValidator)
     await auth.use('web').attempt(payload.email, payload.password)
-    session.flash({ success: 'Connected successfully' })
+    session.flash({ success: 'You are connected successfully !' })
     return response.redirect().toRoute('home')
   }
 
@@ -26,13 +26,13 @@ export default class AuthController {
     const payload = await request.validate(SignupValidator)
     await User.create(payload)
     await auth.use('web').attempt(payload.email, payload.password)
-    session.flash({ success: 'Inscription Success' })
+    session.flash({ success: 'Your inscription is done !' })
     return response.redirect().toRoute('home')
   }
 
   async logout({ auth, response, session }: HttpContextContract) {
     await auth.use('web').logout()
-    session.flash({ success: 'Logged out !' })
+    session.flash({ success: 'You are now logged out !' })
     response.redirect().toRoute('login')
   }
 }

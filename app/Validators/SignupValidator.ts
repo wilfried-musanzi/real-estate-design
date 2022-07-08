@@ -7,6 +7,7 @@ export default class SignupValidator {
   })
 
   public messages: CustomMessages = {
-    required: 'Ce champ est requis !',
+    required: 'This field is required',
+    confirmed: `The passwords don't match`,
   }
 }

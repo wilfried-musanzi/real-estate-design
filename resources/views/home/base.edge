@@ -12,28 +12,44 @@
     @entryPointScripts('app')
 </head>
 <body>
-    <nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top">
+     <div class="nk-header nk-header-fixed is-light">
         <div class="container">
-            <div class="navbar-nav">
-                <a class="nav-link {{ controller == 'homeController' ? 'active' : ' '}}" href="{{ route("home") }}">Home</a>
-                @if(await bouncer.allows('accedToAdminPanel'))
-                    <a class="nav-link " href="{{ route("admin") }}">Dashboard</a>
-                @else
-                    <a class="nav-link {{ controller == 'propertiesController' ? 'active' : ' '}}" href="{{ route("properties.index") }}">Properties</a>
-                @end
-            </div>
-            <div class="navbar-nav">
-            @if(auth.isLoggedIn)
-                <p style="font-size: 15px; color: white; margin: 10px 5px;">{{ auth.user.email }}</p>
-                <a class="btn btn-danger" href="{{ route("logout") }}" style="margin: 3px;">Deconnexion</a>
-            @else
-                <a class="nav-link {{ controller == 'loginController' ? 'active' : ' '}}" href="{{ route("login") }}">Connexion</a>
-                <a class="nav-link {{ controller == 'signupController' ? 'active' : ' '}}" href="{{ route("signup") }}">Inscription</a> 
-            @end
+            <div class="nk-header-wrap">
+                <div class="nk-news-text">
+                    <a class="nav-link {{ controller == 'homeController' ? 'active' : ' '}}" href="{{ route("home") }}">Home</a>
+                    @if(await bouncer.allows('accedToAdminPanel'))
+                        <a class="nav-link " href="{{ route("admin") }}">Dashboard</a>
+                    @else
+                        <a class="nav-link {{ controller == 'propertiesController' ? 'active' : ' '}}" href="{{ route("properties.index") }}">Properties</a>
+                    @end
+                </div>
+                <div class="nk-header-tools">
+                    <ul class="nk-quick-nav">
+                        <li class="dropdown user-dropdown">
+                            <div class="user-toggle">
+                                @if(auth.isLoggedIn)
+                                    <div class="user-avatar sm">
+                                        <em class="icon ni ni-user-alt"></em>
+                                    </div>
+                                    <div class="user-info d-none d-md-block">
+                                        <div class="user-status">{{ auth.user.role == 'admin' ? 'Administrator' : 'Standard' }}</div>
+                                        <div class="user-name">{{ auth.user.email }}</div>
+                                        <li>
+                                            <a href="{{ route('logout')}}"><em class="icon ni ni-signout"></em><span>Logout</span></a>     
+                                        </li>
+                                    </div>
+                                @else
+                                    <a class="nav-link {{ controller == 'loginController' ? 'active' : ' '}}" href="{{ route("login") }}">Connexion</a>
+                                    <a class="nav-link {{ controller == 'signupController' ? 'active' : ' '}}" href="{{ route("signup") }}">Inscription</a> 
+                                @end
+                            </div>      
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </nav>
-    <section class="container center">
+    </div>
+    <section class="container" style="margin-top: 5rem">
         @!section('body')
     </section>
 </body>
