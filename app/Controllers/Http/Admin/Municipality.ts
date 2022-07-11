@@ -4,21 +4,20 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import MunicipalityValidator from 'App/Validators/MunicipalityValidator'
 
 export default class AdminCategory {
-  async index({ view }: HttpContextContract) {
+  public async index({ view }: HttpContextContract) {
     const municipalities = await Database.from(Municipality.table)
     return view.render('admin/municipality/index', {
       municipalities,
       controller: 'adminMunicipalityController',
     })
   }
-
-  view({ view }: HttpContextContract) {
+  public view({ view }: HttpContextContract) {
     return view.render('admin/category/new', {
       controller: 'adminMunicipalityController',
     })
   }
 
-  async addNew({ request, session, response }: HttpContextContract) {
+  public async addNew({ request, session, response }: HttpContextContract) {
     const payload = await request.validate(MunicipalityValidator)
     await Municipality.create(payload)
     session.flash({ success: 'The municipality has been created !' })
@@ -27,7 +26,7 @@ export default class AdminCategory {
     })
   }
 
-  async show({ view, params }: HttpContextContract) {
+  public async show({ view, params }: HttpContextContract) {
     const municipality = await Municipality.findOrFail(params.id)
     return view.render('admin/municipality/edit', {
       municipality,
@@ -35,19 +34,19 @@ export default class AdminCategory {
     })
   }
 
-  async edit({ params, request, session, response }: HttpContextContract) {
+  public async edit({ params, request, session, response }: HttpContextContract) {
     const payload = await request.validate(MunicipalityValidator)
     const property = await Municipality.findOrFail(params.id)
-    property.merge(payload).save()
+    await property.merge(payload).save()
     session.flash({ success: 'The municipality has been updated !' })
     return response.redirect().toRoute('municipality.index', {
       controller: 'adminMunicipalityController',
     })
   }
 
-  async delete({ params, session, response }: HttpContextContract) {
+  public async delete({ params, session, response }: HttpContextContract) {
     const property = await Municipality.findOrFail(params.id)
-    property.delete()
+    await property.delete()
     session.flash({ success: 'The municipality has been deleted !' })
     return response.redirect().toRoute('municipality.index', {
       controller: 'adminMunicipalityController',
