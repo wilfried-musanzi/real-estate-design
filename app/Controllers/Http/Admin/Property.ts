@@ -61,7 +61,7 @@ export default class AdminProperty {
   async delete({ params, session, response }: HttpContextContract) {
     const property = await Property.findOrFail(params.id)
     property.delete()
-    session.flash({ success: 'Delete Success' })
+    session.flash({ success: 'The property has been updated deleted !' })
     return response.redirect().toRoute('property.index', {
       controller: 'adminPropertyController',
     })

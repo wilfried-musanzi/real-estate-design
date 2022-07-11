@@ -21,7 +21,7 @@ export default class AdminCategory {
   async addNew({ request, session, response }: HttpContextContract) {
     const payload = await request.validate(MunicipalityValidator)
     await Municipality.create(payload)
-    session.flash({ success: 'Created Success' })
+    session.flash({ success: 'The municipality has been created !' })
     return response.redirect().toRoute('municipality.index', {
       controller: 'adminMunicipalityController',
     })
@@ -39,7 +39,7 @@ export default class AdminCategory {
     const payload = await request.validate(MunicipalityValidator)
     const property = await Municipality.findOrFail(params.id)
     property.merge(payload).save()
-    session.flash({ success: 'Updated Success' })
+    session.flash({ success: 'The municipality has been updated !' })
     return response.redirect().toRoute('municipality.index', {
       controller: 'adminMunicipalityController',
     })
@@ -48,7 +48,7 @@ export default class AdminCategory {
   async delete({ params, session, response }: HttpContextContract) {
     const property = await Municipality.findOrFail(params.id)
     property.delete()
-    session.flash({ success: 'Delete Success' })
+    session.flash({ success: 'The municipality has been deleted !' })
     return response.redirect().toRoute('municipality.index', {
       controller: 'adminMunicipalityController',
     })

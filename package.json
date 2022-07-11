@@ -38,9 +38,17 @@
     "printWidth": 100
   },
   "devDependencies": {
-    "@adonisjs/assembler": "^5.8.0",
     "@japa/preset-adonis": "^1.1.0",
     "@japa/runner": "^2.0.9",
+    "@adonisjs/assembler": "^5.8.0",
+    "@adonisjs/auth": "^8.2.1",
+    "@adonisjs/bouncer": "^2.3.0",
+    "@adonisjs/core": "^5.8.0",
+    "@adonisjs/lucid": "^18.1.0",
+    "@adonisjs/repl": "^3.1.0",
+    "@adonisjs/session": "^6.2.0",
+    "@adonisjs/shield": "^7.0.0",
+    "@adonisjs/view": "^6.1.0",
     "@symfony/webpack-encore": "^2.1.0",
     "adonis-preset-ts": "^2.1.0",
     "eslint": "^8.18.0",
@@ -57,14 +65,6 @@
     "youch-terminal": "^2.1.4"
   },
   "dependencies": {
-    "@adonisjs/auth": "^8.2.1",
-    "@adonisjs/bouncer": "^2.3.0",
-    "@adonisjs/core": "^5.8.0",
-    "@adonisjs/lucid": "^18.1.0",
-    "@adonisjs/repl": "^3.1.0",
-    "@adonisjs/session": "^6.2.0",
-    "@adonisjs/shield": "^7.0.0",
-    "@adonisjs/view": "^6.1.0",
     "@hotwired/turbo": "^7.1.0",
     "alpinejs": "^3.10.2",
     "htmx.org": "^1.7.0",
