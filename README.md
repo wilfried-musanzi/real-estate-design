@@ -1,12 +1,12 @@
-# AGENCY
+## real estate agency design
 
-## Installation
+### Installation
 
 ```bash
 $ yarn install
 ```
 
-## Running the app
+### Running the app
 
 ```bash
 $ yarn run dev
