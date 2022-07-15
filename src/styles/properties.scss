@@ -1,0 +1,46 @@
+.section__properties {
+  margin-bottom: 12.8rem;
+}
+
+.cards {
+  display: flex;
+  gap: 3rem;
+}
+
+.card__title {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+.card__text {
+  margin-bottom: 2rem;
+  font-size: 1.4rem;
+}
+
+.card {
+  border-radius: 0.4rem;
+  box-shadow: 0 0.5rem 1rem rgb(0, 0, 0, 0.3);
+}
+
+.card__details {
+  display: flex;
+  gap: 2rem;
+  font-weight: 500;
+  color: $dark-primary;
+  margin-bottom: 3rem;
+}
+
+.card__body {
+  padding: 3rem;
+}
+
+.card__img {
+  img {
+    width: 100%;
+    height: 30rem;
+  }
+}
+.section__title {
+  margin-bottom: 4rem;
+  font-size: 3rem;
+  color: $dark-primary;
+}
