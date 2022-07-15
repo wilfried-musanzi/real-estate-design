@@ -1,36 +1,41 @@
 .header {
   margin-bottom: 5rem;
-}
-.header__nav {
   display: flex;
-  justify-content: flex-end;
-  padding: 5rem;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 5rem;
 }
+
+.logout__icon {
+  color: $red-primary;
+  font-size: 2.5rem;
+}
+
+.signout {
+  margin-top: -1rem;
+}
+
+.logout__link {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
 .nav__list {
   list-style: none;
   display: flex;
   gap: 3rem;
 }
+
 .nav__link {
   &:link,
   &:visited {
-    color: $white-primary;
+    color: $dark-primary;
     transition: all 0.3s;
   }
 
   &:hover,
   &:active {
-    color: $bleue-secondary;
-  }
-}
-
-.active {
-  &::after {
-    content: "";
-    display: block;
-    height: 0.2rem;
-    width: 9rem;
-    margin-top: 0.6rem;
-    background-color: $bleue-secondary;
+    color: $red-primary;
   }
 }

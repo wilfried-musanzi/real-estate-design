@@ -1,7 +1,9 @@
-$bleue-primary: #011627;
-$bleue-primary-opacity: #001d3d99;
-$bleue-secondary: #0077b6;
+$bleue-primary: #003566;
 $white-primary: #f8fafc;
+$dark-primary: #212529;
+$dark-secondary: #343a40;
+$red-primary: #ff0054;
+$red-darker: #c00745;
 
 *,
 *::after,
@@ -16,8 +18,8 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: $bleue-primary;
-  color: $white-primary;
+  background-color: $white-primary;
+  color: $dark-secondary;
   font-size: 1.6rem;
   line-height: 1.6;
 }
@@ -29,7 +31,7 @@ body {
 .cta--link {
   padding: 1rem 3rem;
   border-radius: 0.4rem;
-  border: solid 0.1rem $bleue-secondary;
+  border: solid 0.1rem $red-primary;
 }
 
 .container {
@@ -41,52 +43,5 @@ a {
   &:link,
   &:visited {
     @extend %link;
-  }
-}
-
-.bg-layers {
-  -webkit-animation: filter-animation 4s infinite;
-  animation: filter-animation 4s infinite;
-}
-
-.bg-scale {
-  -webkit-animation: filter-animation 8s infinite;
-  animation: filter-scale 8s infinite;
-}
-
-@-webkit-keyframes filter-animation {
-  0% {
-    -webkit-filter: hue-rotate(0deg);
-  }
-  50% {
-    -webkit-filter: hue-rotate(45deg);
-  }
-
-  100% {
-    -webkit-filter: hue-rotate(0deg);
-  }
-}
-
-@keyframes filter-animation {
-  0% {
-    filter: hue-rotate(0deg);
-  }
-  50% {
-    filter: hue-rotate(45deg);
-  }
-  100% {
-    filter: hue-rotate(0deg);
-  }
-}
-
-@keyframes filter-scale {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.4);
-  }
-  100% {
-    transform: scale(0.8);
   }
 }

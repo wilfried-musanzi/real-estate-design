@@ -3,14 +3,13 @@
 }
 
 .hero__body {
-  display: flex;
-  gap: 5rem;
+  padding: 10rem 0;
 }
 
 .hero__description {
   font-size: 3rem;
   line-height: 1.4;
-  width: 70%;
+  max-width: 70%;
 }
 
 .hero__img {
@@ -30,7 +29,13 @@
 .hero__link {
   &:link,
   &:visited {
-    color: $bleue-secondary;
+    color: $red-primary;
+    transition: all 0.3s;
+  }
+  &:hover,
+  &:active {
+    background-color: $red-primary;
+    color: $white-primary;
   }
 }
 
@@ -38,8 +43,14 @@
   &:link,
   &:visited {
     color: $white-primary;
-    background-color: $bleue-secondary;
+    background-color: $red-primary;
     padding: 1rem 3rem;
     border-radius: 0.4rem;
+    transition: all 0.3s;
+  }
+
+  &:hover,
+  &:active {
+    background-color: $red-darker;
   }
 }
