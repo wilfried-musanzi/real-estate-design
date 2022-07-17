@@ -1,49 +1,58 @@
 .section__properties {
   margin-bottom: 12.8rem;
-  // background-color: $white-primary;
   padding-top: 4rem;
   padding-bottom: 4rem;
+  background-color: $light-3;
 }
 
 .cards {
   display: flex;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .card__title {
   font-size: 1.6rem;
   margin-bottom: 2rem;
 }
-.card__text {
+.card__description {
   margin-bottom: 2rem;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  color: $dark-2;
 }
 
 .card {
+  padding: 3rem;
   border-radius: 0.4rem;
-  box-shadow: 0 0.5rem 1rem rgb(0, 0, 0, 0.3);
+  border: solid 0.1rem $light-2;
+  background-color: $light-1;
+}
+
+.card__header {
+  display: flex;
+  gap: 3rem;
+}
+.card__title {
+  font-size: 2rem;
+  margin-top: 1rem;
+  color: $dark-3;
 }
 
 .card__details {
   display: flex;
-  gap: 2rem;
+  flex-direction: column;
+  gap: 0.4rem;
   font-weight: 500;
-  color: $dark-1;
-  margin-bottom: 3rem;
-}
-
-.card__body {
-  padding: 3rem;
+  color: $dark-2;
+  font-size: 2.5rem;
+  span {
+    margin-left: 0.2rem;
+    font-size: 1rem;
+  }
 }
 
 .card__img {
   img {
-    width: 100%;
-    height: 30rem;
+    width: 20rem;
+    height: auto;
   }
-}
-.section__title {
-  margin-bottom: 4rem;
-  font-size: 3rem;
-  color: $dark-3;
 }

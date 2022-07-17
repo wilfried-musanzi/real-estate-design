@@ -1,5 +1,6 @@
 $light-1: #fff;
-$light-2: #d1d5db;
+$light-2: #f5f7fae5;
+$light-3: #f1f5f9;
 $dark-1: #212529;
 $dark-2: #343a40;
 $dark-3: #000814;
@@ -84,4 +85,10 @@ a {
     color: $light-1;
     background-color: $red-2;
   }
+}
+
+.heading__primary {
+  font-size: 2.5rem;
+  color: $dark-2;
+  margin-bottom: 4rem;
 }
