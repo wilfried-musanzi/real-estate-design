@@ -1,0 +1,87 @@
+$light-1: #fff;
+$light-2: #d1d5db;
+$dark-1: #212529;
+$dark-2: #343a40;
+$dark-3: #000814;
+$bleue-1: #011627;
+$bleue-2: #00afb9;
+$bleue-3: #033052;
+$bleue-4: #022744;
+$green: #64ffda;
+$red-1: #ef233c;
+$red-2: #d80b23;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  background-color: $light-1;
+  color: $dark-1;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+%link {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+.sub-container {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+a {
+  &:link,
+  &:visited {
+    @extend %link;
+  }
+}
+
+.btn__primary {
+  &:link,
+  &:visited {
+    padding: 1rem 3rem;
+    border-radius: 0.5rem;
+    background-color: $bleue-3;
+    color: $light-1;
+    font-size: 1.6rem;
+    transition: all 0.3s;
+  }
+  &:hover,
+  &:active {
+    color: $light-1;
+    background-color: $bleue-4;
+  }
+}
+
+.btn__secondary {
+  &:link,
+  &:visited {
+    padding: 1rem 3rem;
+    border-radius: 0.5rem;
+    background-color: $red-1;
+    color: $light-1;
+    font-size: 1.6rem;
+    transition: all 0.3s;
+  }
+  &:hover,
+  &:active {
+    color: $light-1;
+    background-color: $red-2;
+  }
+}

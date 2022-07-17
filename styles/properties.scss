@@ -1,5 +1,8 @@
 .section__properties {
   margin-bottom: 12.8rem;
+  // background-color: $white-primary;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .cards {
@@ -25,7 +28,7 @@
   display: flex;
   gap: 2rem;
   font-weight: 500;
-  color: $dark-primary;
+  color: $dark-1;
   margin-bottom: 3rem;
 }
 
@@ -42,5 +45,5 @@
 .section__title {
   margin-bottom: 4rem;
   font-size: 3rem;
-  color: $dark-primary;
+  color: $dark-3;
 }

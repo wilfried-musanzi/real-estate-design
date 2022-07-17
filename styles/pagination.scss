@@ -1,0 +1,33 @@
+.pagination {
+  display: flex;
+  gap: 2rem;
+  font-size: 2rem;
+  margin-top: 4rem;
+}
+.pagination__list {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.pagination__item {
+  list-style: none;
+}
+.pagination__item {
+  a {
+    &:link,
+    &:visited {
+      // color: $dark-primary;
+      padding: 1rem;
+      transition: all 0.3s;
+    }
+
+    &:hover,
+    &:active {
+      background-color: #e5e5e5;
+    }
+  }
+  .active {
+    background-color: #e5e5e5;
+  }
+}

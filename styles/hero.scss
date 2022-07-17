@@ -1,0 +1,36 @@
+.hero {
+  background-color: $bleue-1;
+  position: relative;
+}
+
+.hero__body {
+  font-family: Nunito, sans-serif;
+  color: $light-1;
+  font-weight: 300;
+  font-size: 4rem;
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 40rem;
+}
+
+.hero__welcome {
+  margin-bottom: 4rem;
+  line-height: 1.2;
+}
+.hero__description {
+  font-size: 2rem;
+  color: $light-2;
+}
+.hero__links {
+  position: relative;
+}
+
+.hero__img {
+  position: absolute;
+  bottom: -35rem;
+  transform: translate(50%, -70%);
+  img {
+    width: 68rem;
+    height: auto;
+  }
+}

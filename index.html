@@ -2,129 +2,43 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="description" content="Agence JMK" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <title>Real Estate Agency | Design</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <script defer src="https://unpkg.com/phosphor-icons"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agencde | Design</title>
   </head>
   <body>
-    <header class="header container">
-      <nav class="nav__logout">
-        <a href="" class="logout__link nav__link">
-          <p class="signout">Se deconnecter</p>
-          <span class="logout__icon"><i class="ph-sign-out"></i></span>
-        </a>
-      </nav>
-
-      <nav class="header__nav">
-        <ul class="nav__list">
-          <li class="nav__item">
-            <a href="" class="nav__link">Immeubles</a>
-          </li>
-          <li class="nav__item">
-            <a href="" class="nav__link cta--btn">Contact</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-
-    <section class="section section--hero container">
-      <div class="hero__body">
-        <div class="hero__description">
-          Faites une visite en toute securite, nous offrons des immeubles
-          certifies et valides par nos experts.
-          <div class="hero__btns">
-            <a href="" class="hero__link cta--link">Connexion</a>
-            <a href="" class="hero__link cta--btn">Inscription</a>
-          </div>
+    <div class="hero">
+      <header class="header container">
+        <h2 class="header__brand">agence <span>jmk</span></h2>
+        <nav class="header__nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="" class="nav__link">Inscrption</a>
+            </li>
+            <li class="nav__item">
+              <a href="" class="nav__link link__cta">Connextion</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <div class="hero__body sub-container">
+        <p class="hero__welcome">
+          Des immeubles validez et certifies par nos experts pour votre plaisir.
+        </p>
+        <p class="hero__description">
+          Nous vous offrons ce services dans toute la ville de pour votre plus
+          grand bonheur evitez vous tout de placement depuis chez vous reservez
+          une visite
+        </p>
+        <div class="hero__links">
+          <a href="" class="btn__primary">Immeubles</a>
+          <a href="" class="btn__secondary">Contactez-nous</a>
         </div>
       </div>
-    </section>
-
-    <section class="section__properties container">
-      <h3 class="section__title">Les immeubles recents</h3>
-      <div class="cards">
-        <div class="card">
-          <div class="card__img">
-            <img src="./src/images/house.webp" alt="house img" />
-          </div>
-          <div class="card__body">
-            <h3 class="card__title">Google LLC</h3>
-            <div class="card__text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-              optio non necessitatibus amet quasi debitis doloremque adipisci
-              quam perspiciatis, cupiditate porro tempora distinctio id voluptas
-              quod ipsa earum eligendi? Sit.
-            </div>
-            <div class="card__footer">
-              <div class="card__details">
-                <p class="price">250 $</p>
-                <p class="surface">60m2</p>
-              </div>
-              <a href="" class="hero__link cta--btn">Reservation</a>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card__img">
-            <img src="./src/images/house.webp" alt="house img" />
-          </div>
-          <div class="card__body">
-            <h3 class="card__title">Google LLC</h3>
-            <div class="card__text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-              optio non necessitatibus amet quasi debitis doloremque adipisci
-              quam perspiciatis, cupiditate porro tempora distinctio id voluptas
-              quod ipsa earum eligendi? Sit.
-            </div>
-            <div class="card__footer">
-              <div class="card__details">
-                <p class="price">250 $</p>
-                <p class="surface">60m2</p>
-              </div>
-              <a href="" class="hero__link cta--btn">Reservation</a>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card__img">
-            <img src="./src/images/house.webp" alt="house img" />
-          </div>
-          <div class="card__body">
-            <h3 class="card__title">Google LLC</h3>
-            <div class="card__text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-              optio non necessitatibus amet quasi debitis doloremque adipisci
-              quam perspiciatis, cupiditate porro tempora distinctio id voluptas
-              quod ipsa earum eligendi? Sit.
-            </div>
-            <div class="card__footer">
-              <div class="card__details">
-                <p class="price">250 $</p>
-                <p class="surface">60m2</p>
-              </div>
-              <a href="" class="hero__link cta--btn">Reservation</a>
-            </div>
-          </div>
-        </div>
+      <div class="hero__img">
+        <img src="./images/pexels-pixabay-271816.webp" alt="house img" />
       </div>
-    </section>
-    <footer class="footer">
-      <p class="footer__text">
-        Agence JMK designed by Makabu, Musanzi and Milenda
-      </p>
-    </footer>
-    <script type="module" src="/src/js/main.js"></script>
+    </div>
   </body>
+  <script type="module" src="./js/main.js"></script>
 </html>
