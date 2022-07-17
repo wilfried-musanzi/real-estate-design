@@ -15,8 +15,8 @@
   margin-bottom: 2rem;
 }
 .card__description {
-  margin-bottom: 2rem;
-  font-size: 1.6rem;
+  margin-bottom: 4rem;
+  font-size: 1.5rem;
   color: $dark-2;
 }
 
@@ -25,12 +25,17 @@
   border-radius: 0.4rem;
   border: solid 0.1rem $light-2;
   background-color: $light-1;
+  transition: all 0.3s;
+  &:hover {
+    transform: translateY(-1.5rem);
+  }
 }
 
 .card__header {
   display: flex;
   gap: 3rem;
 }
+
 .card__title {
   font-size: 2rem;
   margin-top: 1rem;
