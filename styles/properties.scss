@@ -27,7 +27,7 @@
   background-color: $light-1;
   transition: all 0.3s;
   &:hover {
-    transform: translateY(-1.5rem);
+    border: solid 0.1rem $bleue-2;
   }
 }
 
@@ -58,6 +58,6 @@
 .card__img {
   img {
     width: 20rem;
-    height: auto;
+    height: 10rem;
   }
 }

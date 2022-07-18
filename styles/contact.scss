@@ -1,0 +1,45 @@
+.section__contact {
+  margin-bottom: 12.8rem;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 0.1rem solid $light-4;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+input,
+textarea {
+  &:focus {
+    outline: none;
+    border: 0.1rem solid $bleue-2;
+  }
+}
+
+label {
+  padding: 1.2rem 1.2rem 1.2rem 0;
+  display: inline-block;
+}
+
+input[type="submit"] {
+  background-color: $bleue-2;
+  color: $light-1;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  margin-top: 4rem;
+  text-transform: uppercase;
+}
+
+.form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
