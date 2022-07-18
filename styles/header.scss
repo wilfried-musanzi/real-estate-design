@@ -1,15 +1,18 @@
 .header {
-  margin-bottom: 5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 5rem;
+  padding: 3rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .nav__list {
   list-style: none;
   display: flex;
   gap: 3rem;
+  animation: fadeInUp 0.3s ease-in 0.2s backwards;
 }
 
 .nav__link {
@@ -32,6 +35,7 @@
     padding: 1rem 3rem;
     border-radius: 0.4rem;
     transition: all 0.3s;
+    margin-right: 10rem;
   }
 
   &:hover,
@@ -46,6 +50,7 @@
   text-transform: uppercase;
   font-size: 2rem;
   font-weight: 500;
+  animation: fadeInUp 0.3s ease-in 0.3s backwards;
   span {
     color: $green;
   }

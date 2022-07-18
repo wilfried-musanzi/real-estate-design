@@ -1,5 +1,7 @@
 .section__contact {
   margin-bottom: 12.8rem;
+  background: $light-2;
+  padding: 4rem 0;
 }
 
 input[type="text"],
@@ -40,5 +42,4 @@ input[type="submit"] {
 
 .form {
   border-radius: 0.5rem;
-  padding: 2rem;
 }
