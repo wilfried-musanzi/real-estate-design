@@ -2,6 +2,7 @@ $light-1: #fff;
 $light-2: #f5f7fae5;
 $light-3: #f1f5f9;
 $light-4: #ccc;
+$light-5: rgb(241, 245, 249, 0.9);
 $dark-1: #212529;
 $dark-2: #343a40;
 $dark-3: #000814;
@@ -31,6 +32,7 @@ body {
   font-size: 1.6rem;
   line-height: 1.6;
   font-weight: 400;
+  position: relative;
 }
 
 %link {

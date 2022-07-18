@@ -13,21 +13,51 @@
         <nav class="header__nav">
           <ul class="nav__list">
             <li class="nav__item">
-              <a href="" class="nav__link">Inscrption</a>
+              <a href="#login" class="nav__link">Inscrption</a>
             </li>
             <li class="nav__item">
-              <a href="" class="nav__link link__cta">Connextion</a>
+              <a href="#signup" class="nav__link link__cta">Connextion</a>
             </li>
           </ul>
         </nav>
       </header>
+      <div id="login">
+        <form action="" class="form form__top">
+          <div class="small">
+            <p class="close"><i class="ph-x"></i></p>
+            <h4 class="heading__primary center">Se connecter</h4>
+            <label for="lname">Email</label>
+            <input type="email" name="lastname" placeholder="Email" />
+            <label for="lname">Mot de passe</label>
+            <input type="number" name="lastname" placeholder="Mot de passe" />
+            <input type="submit" value="Soummettre" />
+          </div>
+        </form>
+      </div>
+
+      <div id="signup">
+        <form action="" class="form form__top">
+          <div class="small">
+            <p class="close"><i class="ph-x"></i></p>
+            <h4 class="heading__primary center">S'inscire</h4>
+            <label for="lname">Email</label>
+            <input type="email" name="lastname" placeholder="Email" />
+            <label for="lname">Mot de passe</label>
+            <input type="number" name="lastname" placeholder="Mot de passe" />
+            <label for="lname">Confirmer le mot de passe</label>
+            <input type="number" name="lastname" placeholder="Mot de passe" />
+            <input type="submit" value="Soummettre" />
+          </div>
+        </form>
+      </div>
+
       <div class="hero__body sub-container">
         <p class="hero__welcome">
-          Des immeubles valides et certifies par nos experts pour votre plaisir.
+          Des immeubles validés et certifiés par nos experts pour votre plaisir.
         </p>
         <p class="hero__description">
           Nous vous offrons ce services dans toute la ville de pour votre plus
-          grand bonheur evitez vous tout de placement depuis chez vous reservez
+          grand bonheur evitez vous tout de placement depuis chez vous réservez
           une visite
         </p>
         <div class="hero__links">
@@ -148,4 +178,5 @@
     </footer>
   </body>
   <script type="module" src="./js/main.js"></script>
+  <script defer src="https://unpkg.com/phosphor-icons"></script>
 </html>
