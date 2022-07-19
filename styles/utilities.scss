@@ -52,6 +52,7 @@ body {
   margin: 0 auto;
   padding: 0 3rem;
 }
+
 .sub-container {
   max-width: 70rem;
   margin: 0 auto;
@@ -118,6 +119,7 @@ a {
     transform: translateY(0);
   }
 }
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -128,10 +130,13 @@ a {
     transform: translateY(0);
   }
 }
+.section {
+  transition: all 0.3s;
+}
 
 .hidden {
   opacity: 0;
-  transform: translateX(10rem);
+  transform: translateY(10rem);
 }
 
 .sticky {

@@ -2,10 +2,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem;
+  height: 7rem;
+  padding: 0 6rem;
   position: fixed;
   top: 0;
+  right: 0;
+  left: 0;
   width: 100%;
+}
+
+.header__nav {
+  margin-right: 10rem;
 }
 
 .nav__list {
@@ -35,7 +42,6 @@
     padding: 1rem 3rem;
     border-radius: 0.4rem;
     transition: all 0.3s;
-    margin-right: 10rem;
   }
 
   &:hover,

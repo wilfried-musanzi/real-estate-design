@@ -1,12 +1,7 @@
 .hero {
-  // background: url("../images/pexels-huseyn-kamaladdin-667838.webp") no-repeat
-  //   center center / cover;
-  background: linear-gradient(rgb(15, 23, 42, 2), rgb(15, 23, 42, 0.6)),
+  background: linear-gradient(rgb(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)),
     url("../images/pexels-huseyn-kamaladdin-667838.webp") no-repeat center
       center / cover;
-  position: relative;
-  margin-bottom: 12.8rem;
-  padding-top: 8rem;
 }
 
 .hero__body {
@@ -14,9 +9,10 @@
   color: $light-1;
   font-weight: 300;
   font-size: 4rem;
-  text-align: center;
-  padding-top: 3rem;
-  padding-bottom: 40rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero__welcome {
@@ -24,11 +20,15 @@
   line-height: 1.2;
   animation: fadeIn 0.3s ease-in backwards;
 }
+
 .hero__description {
-  font-size: 2rem;
-  color: $light-2;
+  font-family: Roboto, sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.2rem;
+  color: $light-3;
   animation: fadeIn 0.3s ease-in 0.3s backwards;
 }
+
 .hero__links {
   position: relative;
   animation: fadeIn 0.3s ease-in 0.5s backwards;

@@ -38,31 +38,13 @@ const revealElement = function (entries, _) {
 
 const elementObserver = new IntersectionObserver(revealElement, {
   root: null,
-  threshold: 0.2,
+  threshold: 0.15,
 });
 
 sections.forEach(function (elemetn) {
   elementObserver.observe(elemetn);
   elemetn.classList.add("hidden");
 });
-
-// var prevScrollpos = window.pageYOffset;
-// window.onscroll = function () {
-//   // document.querySelector(".header").classList.add("fixed__nav");
-//   // document.querySelector(".header").style.background = " rgb(1, 22, 39, 0.9)";
-
-//   var currentScrollPos = window.pageYOffset;
-//   if (prevScrollpos > currentScrollPos) {
-//     document.querySelector(".header").classList.remove("header__hidden");
-
-//     document.querySelector(".header").style.top = "0";
-//     // document.querySelector(".header").style.background = "#000";
-//   } else {
-//     document.querySelector(".header").classList.add("header__hidden");
-//     // document.querySelector(".header").style.background = "rgb(1, 22, 39)";
-//   }
-//   prevScrollpos = currentScrollPos;
-// };
 
 const mainNav = document.querySelector(".header");
 const mainNavHeight = mainNav.getBoundingClientRect().height;
