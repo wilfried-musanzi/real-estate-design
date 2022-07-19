@@ -15,6 +15,7 @@ textarea {
   border-radius: 4px;
   box-sizing: border-box;
   resize: vertical;
+  margin-bottom: 2rem;
 }
 
 input,
@@ -45,7 +46,6 @@ input[type="submit"] {
   border: none;
   border-radius: 0.4rem;
   cursor: pointer;
-  margin-top: 4rem;
   text-transform: uppercase;
 }
 
