@@ -19,6 +19,9 @@
     position: relative;
     margin-top: 2rem;
   }
+  .small {
+    max-width: 60vw;
+  }
 }
 
 @media (max-width: 75em) {
@@ -27,6 +30,18 @@
   }
   .header__brand {
     font-size: 1.5rem;
+  }
+  .btn__secondary {
+    &:link,
+    &:visited {
+      font-size: 1.4rem;
+    }
+  }
+  .btn__primary {
+    &:link,
+    &:visited {
+      font-size: 1.4rem;
+    }
   }
 }
 

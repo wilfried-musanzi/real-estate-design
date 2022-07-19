@@ -60,6 +60,7 @@ const observer = new IntersectionObserver(
     rootMargin: `-${mainNavHeight}px`,
   }
 );
+
 observer.observe(document.querySelector(".hero"));
 const nav = document.querySelector(".contact");
 nav.addEventListener("click", (e) => {
