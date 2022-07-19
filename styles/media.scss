@@ -1,33 +1,50 @@
 @media screen and (max-width: 84em) {
-  html {
-    font-size: 58%;
+  .nav__list {
+    gap: 1.3rem;
+  }
+  .nav__link {
+    &:link,
+    &:visited {
+      font-size: 2rem;
+    }
+  }
+  .header__brand {
+    font-size: 1.5rem;
+  }
+  .hero__body {
+    font-size: 3.5rem;
+    padding: 0 6rem;
+  }
+  .hero__links {
+    position: relative;
+    margin-top: 2rem;
   }
 }
 
 @media (max-width: 75em) {
-  html {
-    font-size: 56.5%;
-  }
-  .hero__img {
-    align-self: center;
-  }
-
-  .hero__body {
+  .cards {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  }
+  .header__brand {
+    font-size: 1.5rem;
   }
 }
 
 @media screen and (max-width: 59em) {
   html {
-    font-size: 50%;
+    font-size: 58%;
   }
 }
 
 @media screen and (max-width: 44em) {
   html {
-    font-size: 45%;
+    font-size: 50%;
+  }
+  .nav__link {
+    &:link,
+    &:visited {
+      font-size: 1.5rem;
+    }
   }
 }
 
