@@ -23,7 +23,15 @@ textarea {
     border: 0.1rem solid $bleue-2;
   }
 }
-
+input.is-invalid,
+textarea.is-invalid {
+  border: 0.1rem solid $red-1;
+}
+.invalid-message {
+  font-size: 1.4rem;
+  color: $red-1;
+  margin-top: 1rem;
+}
 label {
   padding: 1.2rem 1.2rem 1.2rem 0;
   display: inline-block;

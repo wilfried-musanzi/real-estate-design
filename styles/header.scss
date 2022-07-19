@@ -61,3 +61,18 @@
     color: $green;
   }
 }
+
+.user__account {
+  &:link,
+  &:visited {
+    color: $light-2;
+    margin-top: -0.2rem;
+  }
+}
+
+.user__logout {
+  &:link,
+  &:visited {
+    color: $light-2;
+  }
+}
