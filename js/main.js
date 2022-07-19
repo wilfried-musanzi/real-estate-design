@@ -61,3 +61,10 @@ const observer = new IntersectionObserver(
   }
 );
 observer.observe(document.querySelector(".hero"));
+const nav = document.querySelector(".contact");
+nav.addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log(e.target);
+  const href = e.target.getAttribute("href");
+  if (href) document.querySelector(href).scrollIntoView({ behavior: "smooth" });
+});
