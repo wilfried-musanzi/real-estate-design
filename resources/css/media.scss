@@ -1,0 +1,124 @@
+@media screen and (max-width: 84em) {
+  .nav__list {
+    gap: 1.3rem;
+  }
+  .nav__link {
+    &:link,
+    &:visited {
+      font-size: 2rem;
+    }
+  }
+  .header__brand {
+    font-size: 1.5rem;
+  }
+  .hero__body {
+    font-size: 2.5rem;
+    padding: 0 6rem;
+  }
+  .hero__description {
+    font-size: 1.4rem;
+  }
+  .hero__links {
+    position: relative;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 75em) {
+  .cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .section__profile {
+    flex-direction: column;
+  }
+
+  .header__brand {
+    font-size: 1.5rem;
+  }
+  .btn__secondary {
+    &:link,
+    &:visited {
+      font-size: 1.4rem;
+    }
+  }
+  .btn__primary {
+    &:link,
+    &:visited {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+@media screen and (max-width: 59em) {
+  body {
+    font-size: 1.8rem;
+  }
+  .header__brand {
+    font-size: 1.4rem;
+  }
+
+  .hero__welcome {
+    font-size: 2rem;
+  }
+
+  .hero__description {
+    font-size: 1.3rem;
+  }
+  .btn__secondary {
+    &:link,
+    &:visited {
+      font-size: 1.3rem;
+    }
+  }
+  .btn__primary {
+    &:link,
+    &:visited {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@media screen and (max-width: 44em) {
+  html {
+    font-size: 58%;
+  }
+
+  .nav__link {
+    &:link,
+    &:visited {
+      font-size: 1.5rem;
+    }
+  }
+  .btn__primary {
+    &:link,
+    &:visited {
+      padding: 0.8rem 1.6rem;
+      border-radius: 0.4rem;
+      background-color: $bleue-3;
+      color: $light-1;
+      font-size: 1.4rem;
+      transition: background 0.3s;
+    }
+    &:hover,
+    &:active {
+      color: $light-1;
+      background: $bleue-4;
+    }
+  }
+  .btn__secondary {
+    &:link,
+    &:visited {
+      padding: 0.8rem 1.6rem;
+      border-radius: 0.4rem;
+      background-color: $green;
+      color: $bleue-1;
+      font-size: 1.4rem;
+      transition: background 0.3s;
+    }
+    &:hover,
+    &:active {
+      background: $green-2;
+    }
+  }
+}

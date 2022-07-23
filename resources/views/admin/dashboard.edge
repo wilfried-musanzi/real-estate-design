@@ -1,0 +1,76 @@
+@layout('admin/base')
+@set('title', "Administration")
+@section('body')
+@include('partials/flash')
+<div class="nk-block">
+  <div class="row g-gs">
+    <div class="col-sm-12 col-lg-4 col-xxl-3">
+      <div class="card card-bordered h-100">
+        <div class="card-inner">
+          <div class="project">
+            <div class="project-head">
+              <a href="{{ route('property.index') }}" class="project-title">
+                <div class="user-avatar sq bg-purple">
+                  <span>IB</span>
+                </div>
+                <div class="project-info">
+                  <h6 class="title">{{ countProp }}</h6>
+                  <span class="sub-text">Immeubles</span>
+                </div>
+              </a>
+            </div>
+            <div class="project-details">
+              <p>La liste de tous les immeubles enregistrées sur l'application.</p>
+            </div>   
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12 col-lg-4 col-xxl-3">
+      <div class="card card-bordered h-100">
+        <div class="card-inner">
+          <div class="project">
+            <div class="project-head">
+              <a href="{{ route('municipality.index') }}" class="project-title">
+                <div class="user-avatar sq bg-purple">
+                  <span>IB</span>
+                </div>
+                <div class="project-info">
+                  <h6 class="title">{{ countCat }}</h6>
+                  <span class="sub-text">Communes</span>
+                </div>
+              </a>
+            </div>
+            <div class="project-details">
+              <p>La liste de toutes les commmunes de la ville.</p>
+            </div>   
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12 col-lg-4 col-xxl-3">
+      <div class="card card-bordered h-100">
+        <div class="card-inner">
+          <div class="project">
+            <div class="project-head">
+              <a href="{{ route('property.index') }}" class="project-title">
+                <div class="user-avatar sq bg-purple">
+                  <span>IB</span>
+                </div>
+                <div class="project-info">
+                  <h6 class="title">{{ countUser }}</h6>
+                  <span class="sub-text">Utilisateurs</span>
+                </div>
+              </a>
+            </div>
+            <div class="project-details">
+              <p>La liste de tous les utilisateur de l'application.</p>
+            </div>   
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+@end  

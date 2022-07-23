@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="L'agence JMK à votre service"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @entryPointScripts('app')
+    @entryPointStyles('app')
+    <title>{{ title }}</title>
+  </head>
+  <body>
+      <section class="hero">
+        @include('public/partials/navbar')
+        @!section('hero')
+      </section>
+      @!section('body')
+      @include('public/partials/footer')
+    <script data-turbo-track="reload" defer src="/static/app.js"></script>
+    <script  defer src="https://unpkg.com/phosphor-icons"></script>
+  </body>
+</html>

@@ -1,13 +1,13 @@
-## real estate agency design
+## REAL ESTATE AGENCY
 
 ### Installation
 
 ```bash
-$ yarn install
+$ npm install
 ```
 
 ### Running the app
 
 ```bash
-$ yarn run dev
+$ npm run dev
 ```

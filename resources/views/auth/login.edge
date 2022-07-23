@@ -1,0 +1,27 @@
+@layout('public/base')
+@set('title',"Agence JMK - Login" )
+@section('body')
+    @include('partials/flash')
+    <section class="section__login">
+        <div class="sub-container">
+            <form action="" method="POST" class="form form__top">
+                <h4 class="heading__primary center">Se connecter</h4>
+                @component('public/components/input', {
+                    type: 'email',
+                    placeholder: "Votre Email",
+                    label: "Email",
+                    name: "email",
+                })
+                @end
+                @component('public/components/input', {
+                    type: 'password',
+                    placeholder: "Votre Mot de passe",
+                    label: "Mot de passe",
+                    name: "password",
+                })
+                @end
+                <input type="submit" value="Se connecter" />
+            </form>
+        </div>
+    </section>
+@end

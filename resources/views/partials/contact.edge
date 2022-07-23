@@ -1,0 +1,26 @@
+<section class="section section__contact">
+    <div class="sub-container">
+      <h4 class="heading__primary">Entrez en contact avec nous</h4>
+      <form action="" method="POST" class="form">
+        @component('public/components/input', {
+          type: "text",
+          name: 'mailername',
+          label: "Votre Nom",
+        })
+        @end
+        @component('public/components/input', {
+          type: "email",
+          name: 'email',
+          label: "Votre Email",
+        })
+        @end
+        @component('public/components/input', {
+          type: "textearea",
+          name: 'message',
+          label: "Message",
+        })
+        @end
+        <input type="submit" value="Envoyez" />
+      </form>
+    </div>
+</section>
